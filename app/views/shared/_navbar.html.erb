@@ -15,7 +15,7 @@
     </form>
     <hr class="hidden-xs hidden-sm">
     <% if user_signed_in? %>
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
+      <%= link_to "pages#home", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
         <div class="icon-badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="icon-badge icon-badge-blue">3</div>
@@ -37,7 +37,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= link_to destroy_user_session_path(current_user), method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
               <% end %>
             </li>
@@ -48,6 +48,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <hr>
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Post stuff"), new_user_equipment_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 </nav>

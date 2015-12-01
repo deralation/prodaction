@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users do
-    resources :equipments, only: [:new, :create, :destroy]
+    resources :equipments, only: [:new, :create, :show, :destroy]
   end
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

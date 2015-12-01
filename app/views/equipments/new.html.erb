@@ -1,0 +1,15 @@
+
+<h2>Add new gear</h2>
+
+<%= simple_form_for [current_user, @equipment], url: user_equipments_path(current_user) do |f| %>
+<div class="form-inputs">
+    <%= f.text_field :name %>
+    <%= f.input :value, as: :integer %>
+    <%= f.text_field :description %>
+</div>
+<div class="form-actions">
+  <%= f.submit "add a gear" %>
+</div>
+<% end %>
+
+
