@@ -1,2 +1,136 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Banner -->
+    <div class="banner text-center">
+
+        <h1>ACTION!</h1>
+        <h2>Gear up your projects empowered by the local creative commuinty</h2>
+
+
+      <form action="" class="text-center navbar-wagon-search">  <!-- hidden-xs hidden-sm -->
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search for Gear : E.g. Canon 5D Mark III">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+
+    </div>
+
+<!-- <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on left
+</button> -->
+
+
+    <!-- Feature -->
+
+   <!--  <a href="#map">Find us</a>
+    <p data-sr> Chips Ahoy! </p>
+    <div data-sr="enter left, hustle 20px"> Foo </div>
+<div data-sr="wait 2.5s, ease-in-out 100px"> Bar </div>
+<div data-sr="move 16px scale up 20%, over 2s"> Baz </div>
+<div data-sr="enter bottom, roll 45deg, over 2s"> Bun </div> -->
+
+
+    <div class = "padded">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="feature text-center">
+
+            <%= image_tag "feature_1_reduce.png" %><h2>Rudece food wastage</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil omnis, voluptas laboriosam nostrum? Expedita, tempora quasi pariatur temporibus enim architecto laudantium unde labore consequatur ratione, rem, eos deserunt suscipit aut.</p>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="feature text-center">
+          <%= image_tag "feature_2_help.png" %><h2>Help local farmer</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, vel, ipsum laborum id veritatis iste, eligendi neque at, corrupti corporis unde ad similique. Porro temporibus enim facilis, animi eius error.</p>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="feature text-center">
+          <%= image_tag "feature_3_love.png" %><h2>Love the same fresh taste</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex alias accusamus fuga eos incidunt odit repellat ipsam nulla non earum impedit error, ab saepe ut culpa. Facere labore, voluptas. Laboriosam!</p>
+         </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+
+    <!-- Cards -->
+
+
+    <div class="container text-center"">
+      <h2 class="subtitle">Recovered Options</h2>
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card card1">
+              <%= image_tag "option_1.jpg", class: "img-responsive" %>
+              <h2 class="card_title">MINI HARVEST</h2>
+              <p class="card_text">Perfect for smaller households!</p>
+              <p class="card_price">€15 / Week</p>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+
+            <div class="card card2">
+              <%= image_tag "option_2.jpg", class: "img-responsive" %>
+              <h2 class="card_title">FULL HARVEST</h2>
+              <p class="card_text">Twice the produce, only €10 more!</p>
+              <p class="card_price">€25 / Week</p>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card card3">
+              <%= image_tag "option_3.jpg", class: "img-responsive" %>
+              <h2 class="card_title">SUPER HARVEST</h2>
+              <p class="card_text">For the produce lovers!</p>
+              <p class="card_price">€35 / Week</p>
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Newsletter -->
+
+      <div id="newsletter" class="text-center">
+       <h2 class="subtitle">Get news from us</h2>
+       <p>Leave us your mail and get frugly news</p>
+       <form action="" class="form-inline">
+         <input type="email" placeholder = "your email here " class="form-control">
+        <input type="submit" value="Subscribe" class="btn">
+       </form>
+      </div>
+
+
+    <!-- Map -->
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript">
+    var myLatlng = new google.maps.LatLng(48.852937,2.364178);
+
+    var myOptions = {
+      zoom: 16,
+      center: myLatlng,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [] // TODO: replace [] by array from https://snazzymaps.com/
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: "You are here!"
+    });
+    </script>
+

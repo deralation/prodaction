@@ -1,0 +1,44 @@
+/* code your banner design here */
+
+.banner {
+    background-image: url("bg.jpg");
+    background-repeat: none;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: #fff;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+#logo {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-family: Lobster;
+  color: white;
+  font-size: 2.8em;
+}
+
+.btn-primary {
+  border: none;
+  background-color: #FF6E6E;
+  margin-top: 20px;
+}
+
+
+
+
+
+.banner h1 {
+
+}
