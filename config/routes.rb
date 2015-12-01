@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  resources :users do
+    resources :equipments, only: [:new, :create, :destroy]
+  end
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   # The priority is based upon order of creation: first created -> highest priority.
