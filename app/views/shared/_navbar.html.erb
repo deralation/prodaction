@@ -1,55 +1,10 @@
-<nav class="navbar-wagon">
-  <div class="container navbar-wagon-container">
-
-    <%= link_to"root_path" do%>
-      <%= image_tag "logo.png", class: "navbar-wagon-logo" %>
-    <% end %>
-
-    <div class="navbar-wagon-pusher"></div>
-
-    <form action="" class="navbar-wagon-search hidden-xs hidden-sm">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
-    <hr class="hidden-xs hidden-sm">
-    <% if user_signed_in? %>
-      <%= link_to "pages#home", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
-        <div class="icon-badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="icon-badge icon-badge-blue">3</div>
-        </div>
-      <% end %>
-      <hr>
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "current_user.picture", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+<!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+        <%= render partial: 'shared/navbar/left' %>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+        <%= render partial: 'shared/navbar/right' %>
+          <!-- /.navbar-collapse -->
       </div>
-    <% else %>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-    <hr>
-    <% if user_signed_in? %>
-      <%= link_to t(".top_call_to_action", default: "Post stuff"), new_user_equipment_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %>
-    <% end %>
-  </div>
-</nav>
+  </nav>

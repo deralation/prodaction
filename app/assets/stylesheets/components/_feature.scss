@@ -1,0 +1,44 @@
+.feature {
+  padding: 50px 0 50px 0;
+}
+
+.feature h2 {
+  color: #FF6E6E;
+  font-size: 1.5em;
+}
+
+.feature p {
+  color: gray;
+  text-align: justify;
+}
+
+.feature img {
+
+  width: 50px;
+}
+
+.card-img
+{
+     position:absolute;
+     top:0px;
+     padding-top:50%; /* center the top of child elements vetically */
+     padding-bottom:50%;
+     height:0px;
+}
+
+.card-img h2 {
+    color: #fff;
+    position: relative;
+    text-align: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+
+
+
+
+#newsletter {
+  padding: 50px 0 50px 0;
+}
