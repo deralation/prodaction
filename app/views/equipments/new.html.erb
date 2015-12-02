@@ -6,12 +6,12 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="form-inputs">
-      <%= f.text_field :name, required: true, autofocus: true %>
+      <%= f.input :name, autofocus: true %>
       <%= f.input :value, as: :integer %>
-      <%= f.text_field :description, required: :true %>
+      <%= f.input :description %>
       </div>
       <div class="form-actions">
-        <%= f.submit "add a gear" %>
+      <%= f.submit "add a gear" %>
       </div>
       <% end %>
     </div>
