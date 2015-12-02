@@ -1,6 +1,10 @@
 class EquipmentsController < ApplicationController
   before_filter :authenticate_user!
 
+  def new_fake
+    redirect_to new_user_equipment_path(current_user)
+  end
+
   def index
     @equipment = current_user.equipment
   end

@@ -4,10 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authenticate_user!
-    if user_sign_in!
-      super
+    if user_signed_in?
     else
-      redirect_to login_path, :notice => 'if you want to add a gear!'
+      redirect_to new_user_session_path, :notice => 'if you want to add a gear!'
     end
   end
 
