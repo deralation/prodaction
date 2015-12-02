@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 text-center">
       <% @equipment.each do |equipment| %>
-      <h1><%= equipment.name %></h1>
-      <h2><%= equipment.value %></h2>
-      <p><%= equipment.description %></p>
+      <%= image_tag @post.picture.url(:medium) %>
+      <%= equipment.name %>
+      <%= equipment.value %>
+      <%= equipment.description %>
       <%= link_to "Delete Gear", user_equipment_path(current_user, equipment), method: :delete, data: { confirm: "Are you sure?" }%></li>
       <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
       <% end %>

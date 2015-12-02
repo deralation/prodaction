@@ -48,7 +48,7 @@ class EquipmentsController < ApplicationController
   private
 
   def equipment_params
-    params.require(:equipment).permit(:name, :value, :description)
+    params.require(:equipment).permit(:name, :value, :description, :picture)
   end
 
   def find_user
