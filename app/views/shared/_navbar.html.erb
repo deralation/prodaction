@@ -37,7 +37,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to destroy_user_session_path(current_user), method: :delete do %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
               <% end %>
             </li>
@@ -48,6 +48,8 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <hr>
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), new_user_equipment_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <% if user_signed_in? %>
+      <%= link_to t(".top_call_to_action", default: "Post stuff"), new_user_equipment_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <% end %>
   </div>
 </nav>

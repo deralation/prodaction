@@ -1,0 +1,8 @@
+
+<% @equipment.each do |equipment| %>
+<h1><%= equipment.name %></h1>
+<h2><%= equipment.value %></h2>
+<p><%= equipment.description %></p>
+<%= link_to "Delete Gear", method: :delete, data: { confirm: "Are you sure?" }%></li>
+<%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
+<% end %>

@@ -1,7 +1,7 @@
 class EquipmentsController < ApplicationController
-
   def index
-    @equipments = Equipment.all
+    raise
+    @equipment = current_user.equipment
   end
 
   def new
@@ -12,11 +12,31 @@ class EquipmentsController < ApplicationController
     @equipment = Equipment.new(equipment_params)
     @equipment.user = @user
     if @equipment.save
-      redirect_to user_equipment_path(current_user)
+      redirect_to user_equipments_path(current_user)
     else
       render "equipment/new"
     end
   end
+
+  def show
+
+  end
+
+  def edit
+  end
+
+  def update
+      respond_to do |format|
+      if @equipment.update(equipment_params)
+        format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @equipment }
+      else
+        format.html { render :edit }
+        format.json { render json: @equipment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   def destroy
     @equipment = @user.equipment.find(params[:id])
