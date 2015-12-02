@@ -1,15 +1,22 @@
 
-<h2>Add new gear</h2>
+<h2 class="text-center">Add new gear</h2>
 
 <%= simple_form_for [current_user, @equipment], url: user_equipments_path(current_user) do |f| %>
-<div class="form-inputs">
-    <%= f.text_field :name %>
-    <%= f.input :value, as: :integer %>
-    <%= f.text_field :description %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-inputs">
+      <%= f.text_field :name, required: true, autofocus: true %>
+      <%= f.input :value, as: :integer %>
+      <%= f.text_field :description, required: :true %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "add a gear" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<div class="form-actions">
-  <%= f.submit "add a gear" %>
-</div>
-<% end %>
+
 
 

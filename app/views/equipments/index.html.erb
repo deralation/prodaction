@@ -1,8 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <% @equipment.each do |equipment| %>
+      <h1><%= equipment.name %></h1>
+      <h2><%= equipment.value %></h2>
+      <p><%= equipment.description %></p>
+      <%= link_to "Delete Gear", user_equipment_path(current_user, equipment), method: :delete, data: { confirm: "Are you sure?" }%></li>
+      <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<% @equipment.each do |equipment| %>
-<h1><%= equipment.name %></h1>
-<h2><%= equipment.value %></h2>
-<p><%= equipment.description %></p>
-<%= link_to "Delete Gear", method: :delete, data: { confirm: "Are you sure?" }%></li>
-<%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
-<% end %>

@@ -1,6 +1,5 @@
 class EquipmentsController < ApplicationController
   def index
-    raise
     @equipment = current_user.equipment
   end
 
@@ -9,8 +8,7 @@ class EquipmentsController < ApplicationController
   end
 
   def create
-    @equipment = Equipment.new(equipment_params)
-    @equipment.user = @user
+    @equipment = current_user.equipment.build(equipment_params)
     if @equipment.save
       redirect_to user_equipments_path(current_user)
     else
@@ -28,20 +26,17 @@ class EquipmentsController < ApplicationController
   def update
       respond_to do |format|
       if @equipment.update(equipment_params)
-        format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @equipment }
-      else
-        format.html { render :edit }
-        format.json { render json: @equipment.errors, status: :unprocessable_entity }
+        format.html { redirect_to user_equipments_path, notice: 'Equipment was successfully updated.' }
+        format.json { head :no_content }
       end
     end
   end
 
 
   def destroy
-    @equipment = @user.equipment.find(params[:id])
+    @equipment = current_user.equipment.find(params[:id])
     @equipment.destroy
-    redirect_to user_equipment_path(@user)
+    redirect_to user_equipments_path(current_user.equipment)
   end
 
   private
