@@ -9,11 +9,22 @@
       <%= f.input :name, autofocus: true %>
       <%= f.input :value, as: :integer %>
       <%= f.input :description %>
+      <%= f.input :address, as: :string %>
       <%= f.input :picture %>
       </div>
       <div class="form-actions">
       <%= f.submit "add a gear" %>
       </div>
+      <script type="text/javascript">
+        $(function(){
+          handler = Gmaps.build('Google');
+          handler.buildMap({ internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+          });
+        })
+        </script>
       <% end %>
     </div>
   </div>
