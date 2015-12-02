@@ -1,0 +1,19 @@
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+            <a href="#page-top"></a>
+        </li>
+        <li>
+            <a class="page-scroll" href="#services">Sign up</a>
+        </li>
+
+        <% if user_signed_in? %>
+          <%= render partial: "shared/navbar/logged_in" %>
+        <% else %>
+          <%= render partial: "shared/navbar/not_logged" %>
+        <% end %>
+        <li>
+           <%= link_to t(".top_call_to_action", default: "Add a gear"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+        </li>
+    </ul>
+</div>

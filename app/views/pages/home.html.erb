@@ -1,2 +1,137 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Banner -->
+    <div class="banner text-center">
+
+        <h1>ACTION!</h1>
+        <h2>Gear up your projects <br>empowered by the local creative commuinty</h2>
+        <a href="#" class="btn btn-primary">How it works</a>
+
+        <%= render partial: "shared/component/searchbox" %>
+
+
+    </div>
+
+<!-- <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on left
+</button> -->
+
+
+    <!-- Feature -->
+
+   <!--  <a href="#map">Find us</a>
+    <p data-sr> Chips Ahoy! </p>
+    <div data-sr="enter left, hustle 20px"> Foo </div>
+<div data-sr="wait 2.5s, ease-in-out 100px"> Bar </div>
+<div data-sr="move 16px scale up 20%, over 2s"> Baz </div>
+<div data-sr="enter bottom, roll 45deg, over 2s"> Bun </div> -->
+
+   <h2 class="subtitle">How it works</h2>
+    <div class = "padded">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="feature text-center">
+
+            <%= image_tag "feature_1.jpg" %><h2>Step 1</h2>
+
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="feature text-center">
+          <%= image_tag "feature_2.jpg" %><h2>Step 2</h2>
+
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="feature text-center">
+          <%= image_tag "feature_3.jpg" %><h2>Step 3</h2>
+
+         </div>
+        </div>
+
+         <a href="#" class="btn btn-primary text-center">Browse all Gears</a>
+
+      </div>
+    </div>
+    </div>
+
+
+    <!-- Cards -->
+
+
+    <div class="container text-center"">
+      <h2 class="subtitle">Category according the professions</h2>
+
+      <div class="row">
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <a href="#">
+              <div class="card-img">
+              <%= image_tag "pro_1.jpg", class: "img-responsive" %>
+              <h2>SOUND</h2>
+              <%= image_tag "film.png", class: "img-responsive text-center" %>
+
+              </div>
+            </a>
+
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+
+            <div class="card-img">
+              <%= image_tag "pro_1.jpg", class: "img-responsive" %>
+              <h2>FILM</h2>
+
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card-img">
+              <%= image_tag "pro_1.jpg", class: "img-responsive" %>
+              <h2 class="tx">PHOTOGRAPHY</h2>
+            </div>
+          </div>
+
+      </div>
+
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Newsletter -->
+
+      <div id="newsletter" class="text-center">
+       <h2 class="subtitle">Get news from us</h2>
+       <p>Leave us your mail and get frugly news</p>
+       <form action="" class="form-inline">
+         <input type="email" placeholder = "your email here " class="form-control">
+        <input type="submit" value="Subscribe" class="btn">
+       </form>
+      </div>
+
+
+    <!-- Map -->
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript">
+    var myLatlng = new google.maps.LatLng(48.852937,2.364178);
+
+    var myOptions = {
+      zoom: 16,
+      center: myLatlng,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [] // TODO: replace [] by array from https://snazzymaps.com/
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: "You are here!"
+    });
+    </script>
+
