@@ -1,0 +1,27 @@
+<%= simple_form_for [current_user], url: user_path(current_user) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        Edit Your Profile
+        <%= current_user.first_name %>
+        <%= current_user.last_name %>
+        <%= current_user.picture %>
+      <div class="form-inputs">
+        <%= f.input :description, as: :text %>
+        <%= f.input :occupation, as: :string %>
+        <%= f.input :address, as: :string %>
+        <%= f.input :telephone, as: :decimal %>
+        <%= f.input :birthday, as: :date,
+                              start_year: Date.today.year - 60,
+                              end_year: Date.today.year - 12, discard_day: true,
+                              order: [:month, :year] %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Edit Profile" %>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
