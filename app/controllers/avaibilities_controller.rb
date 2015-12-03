@@ -9,6 +9,7 @@ class AvaibilitiesController < ApplicationController
     @avaibility = Avaibility.new
   end
 
+  # yes
 
   def create
   end
