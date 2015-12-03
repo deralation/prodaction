@@ -12,31 +12,27 @@
   text-align: justify;
 }
 
-.feature img {
 
-  width: 50px;
-}
 
 .card-img
 {
-     position:absolute;
+     position:relative;
+
      top:0px;
      padding-top:50%; /* center the top of child elements vetically */
      padding-bottom:50%;
+     width: 100%;
      height:0px;
 }
 
 .card-img h2 {
     color: #fff;
-    position: relative;
-    text-align: center;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+
+
 }
-
-
 
 
 #newsletter {

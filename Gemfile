@@ -16,6 +16,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 
+gem 'letter_opener', group: :development
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

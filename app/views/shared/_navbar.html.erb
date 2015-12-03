@@ -1,10 +1,58 @@
-<!-- Navigation -->
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <!-- Fixed navbar from Bootstrap -->
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-        <%= render partial: 'shared/navbar/left' %>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-        <%= render partial: 'shared/navbar/right' %>
-          <!-- /.navbar-collapse -->
+
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- The logo   -->
+          <a class="navbar-brand page-scroll" href="/#page-top">Share Gear</a>
+
+        </div>
+
+
+            <!-- Starting unordered list class nav, navbar-nav -->
+            <ul class="nav navbar-nav navbar-right">
+
+                <!-- If User is not signed up yet -->
+                <% if (!user_signed_in?) %>
+
+                    <li><%= link_to'Sign up',new_user_registration_path %></li>
+                    <li><%= link_to'Log in',new_user_session_path %></li>
+
+                <% else %>
+
+                <!-- Dropdown menu from current email -->
+                <li> <%= image_tag current_user.picture, class: "avatar" %> </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">My Gears</a></li>
+                        <li><a href="#">Wish Lists</a></li>
+                        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <li><a href="#">Acount Setting</a></li>
+                        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                      </ul>
+                </li>
+
+                <% end %>
+
+                <!-- <li class="active"><a href="#">Home</a></li>
+                <li><a href="#contact">Contact</a></li> -->
+                <li><%= link_to t(".top_call_to_action", default: "Add a gear"), "#" %></li>
+
+
+            </ul>
+
       </div>
-  </nav>
+    </nav>
+
+
