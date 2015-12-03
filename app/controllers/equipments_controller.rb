@@ -7,6 +7,10 @@ class EquipmentsController < ApplicationController
 
   def index
     @equipment = current_user.equipment
+    @markers = Gmaps4rails.build_markers(@equipment) do |equipment, marker|
+      marker.lat equipment.latitude if equipment.latitude
+      marker.lng equipment.longitude if equipment.longitude
+    end
   end
 
   def new
@@ -23,7 +27,8 @@ class EquipmentsController < ApplicationController
   end
 
   def show
-
+    @equipment = Equipment.find(params[:id])
+    @equipment_coordinates = { lat: @equipment.lat, lng: @equipment.lng }
   end
 
   def edit
@@ -48,7 +53,7 @@ class EquipmentsController < ApplicationController
   private
 
   def equipment_params
-    params.require(:equipment).permit(:name, :value, :description)
+    params.require(:equipment).permit(:name, :value, :description, :picture, :address)
   end
 
   def find_user
