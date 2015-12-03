@@ -1,8 +1,16 @@
 class EquipmentsController < ApplicationController
   before_filter :authenticate_user!
 
+  def new_fake
+    redirect_to new_user_equipment_path(current_user)
+  end
+
   def index
     @equipment = current_user.equipment
+    @markers = Gmaps4rails.build_markers(@equipment) do |equipment, marker|
+      marker.lat equipment.latitude if equipment.latitude
+      marker.lng equipment.longitude if equipment.longitude
+    end
   end
 
   def new
@@ -12,16 +20,15 @@ class EquipmentsController < ApplicationController
   def create
     @equipment = current_user.equipment.build(equipment_params)
     if @equipment.save
-      redirect_to user_equipments_path(current_user)
+      redirect_to user_equipments_path(current_user, @equipment)
     else
       render "equipment/new"
     end
   end
 
   def show
-
-     @equipments = Equipment.all
-
+    @equipment = Equipment.find(params[:id])
+    @equipment_coordinates = { lat: @equipment.lat, lng: @equipment.lng }
   end
 
   def edit
@@ -46,7 +53,7 @@ class EquipmentsController < ApplicationController
   private
 
   def equipment_params
-    params.require(:equipment).permit(:name, :value, :description)
+    params.require(:equipment).permit(:name, :value, :description, :picture, :address)
   end
 
   def find_user

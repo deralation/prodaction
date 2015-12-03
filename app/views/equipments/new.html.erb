@@ -1,18 +1,31 @@
 
 <h2 class="text-center">Add new gear</h2>
 
-<%= simple_form_for [current_user, @equipment], url: user_equipments_path(current_user) do |f| %>
+<%= simple_form_for [current_user, @equipment],  url: user_equipments_path(current_user) do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="form-inputs">
-      <%= f.text_field :name, required: true, autofocus: true %>
+      <%= f.input :name, autofocus: true %>
       <%= f.input :value, as: :integer %>
-      <%= f.text_field :description, required: :true %>
+      <%= f.input :description %>
+      <%= f.input :address, as: :string %>
+      <%= f.input :picture %>
+
       </div>
       <div class="form-actions">
-        <%= f.submit "add a gear" %>
+      <%= f.submit "add a gear" %>
       </div>
+      <script type="text/javascript">
+        $(function(){
+          handler = Gmaps.build('Google');
+          handler.buildMap({ internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+          });
+        })
+        </script>
       <% end %>
     </div>
   </div>
