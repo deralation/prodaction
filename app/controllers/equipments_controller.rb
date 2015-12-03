@@ -20,6 +20,8 @@ class EquipmentsController < ApplicationController
 
   def show
 
+     @equipments = Equipment.all
+
   end
 
   def edit

@@ -4,7 +4,7 @@
 //= require_tree .
 
 
-console.log('test')
+
 
 
 $(window).scroll(function() {
