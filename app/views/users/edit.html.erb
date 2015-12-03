@@ -1,0 +1,19 @@
+<%= simple_form_for [current_user], url: user_path(current_user) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        Edit Your Profile
+        <%= current_user.first_name %>
+        <%= current_user.last_name %>
+      <div class="form-inputs">
+        <%= f.input :description, as: :text %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Edit Profile" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
