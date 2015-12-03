@@ -20,7 +20,7 @@ class EquipmentsController < ApplicationController
   def create
     @equipment = current_user.equipment.build(equipment_params)
     if @equipment.save
-      redirect_to user_equipments_path(current_user)
+      redirect_to user_equipments_path(current_user, @equipment)
     else
       render "equipment/new"
     end

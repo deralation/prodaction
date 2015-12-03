@@ -9,5 +9,10 @@ Rails.application.routes.draw do
     resources :equipments
   end
 
+  resources :equipments, only: [:show, :create, :edit, :update, :new, :delete ] do
+    resources :avaibilities
+  end
+
+
   get "/user/equipments/new", to: "equipments#new_fake", as: "fake_new_equipment"
 end

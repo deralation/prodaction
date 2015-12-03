@@ -1,5 +1,6 @@
 class Equipment < ActiveRecord::Base
   belongs_to :user
+  has_many :availabilities
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
