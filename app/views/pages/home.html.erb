@@ -1,9 +1,11 @@
 <!-- Banner -->
-    <div class="banner text-center">
+    <div class="banner text-center hide-under-navbar">
 
         <h1>ACTION!</h1>
-        <h2>Gear up your projects <br>empowered by the local creative commuinty</h2>
-        <a href="#" class="btn btn-primary">How it works</a>
+        <h2>Gear up your creative projects <br>empowered by the local commuinty</h2>
+
+        <button class="btn btn-large btn-default" type="button">How it works</button>
+
 
         <%= render partial: "shared/component/searchbox" %>
 
@@ -24,7 +26,7 @@
 <div data-sr="move 16px scale up 20%, over 2s"> Baz </div>
 <div data-sr="enter bottom, roll 45deg, over 2s"> Bun </div> -->
 
-   <h2 class="subtitle">How it works</h2>
+   <h2 class="subtitle text-center">How it works</h2>
     <div class = "padded">
     <div class="container">
       <div class="row">
@@ -50,7 +52,9 @@
          </div>
         </div>
 
+         <div class= "text-center">
          <a href="#" class="btn btn-primary text-center">Browse all Gears</a>
+       </div>
 
       </div>
     </div>
@@ -70,7 +74,7 @@
               <div class="card-img">
               <%= image_tag "pro_1.jpg", class: "img-responsive" %>
               <h2>SOUND</h2>
-              <%= image_tag "film.png", class: "img-responsive text-center" %>
+
 
               </div>
             </a>
@@ -78,60 +82,40 @@
           </div>
 
           <div class="col-xs-12 col-sm-6 col-md-4">
-
+          <a href="#">
             <div class="card-img">
-              <%= image_tag "pro_1.jpg", class: "img-responsive" %>
-              <h2>FILM</h2>
-
+              <%= image_tag "pro_1.jpg", class: "img-responsive " %>
+              <h2><span>FILM</span></h2>
             </div>
           </div>
+           </a>
 
           <div class="col-xs-12 col-sm-6 col-md-4">
+            <a href="#">
             <div class="card-img">
-              <%= image_tag "pro_1.jpg", class: "img-responsive" %>
-              <h2 class="tx">PHOTOGRAPHY</h2>
+              <%= image_tag "pro_1.jpg", class: "img-responsive card" %>
+              <h2>PHOTOGRAPHY</h2>
             </div>
           </div>
+           </a>
 
       </div>
 
     </div>
 
-    <div id="map"></div>
 
-    <!-- Newsletter -->
-
-      <div id="newsletter" class="text-center">
-       <h2 class="subtitle">Get news from us</h2>
-       <p>Leave us your mail and get frugly news</p>
-       <form action="" class="form-inline">
-         <input type="email" placeholder = "your email here " class="form-control">
-        <input type="submit" value="Subscribe" class="btn">
-       </form>
-      </div>
-
-
-    <!-- Map -->
-    <div id="map" style="width: 100%; height: 400px;"></div>
-
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
-    <script type="text/javascript">
-    var myLatlng = new google.maps.LatLng(48.852937,2.364178);
-
-    var myOptions = {
-      zoom: 16,
-      center: myLatlng,
-      scrollwheel: false,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles: [] // TODO: replace [] by array from https://snazzymaps.com/
-    };
-
-    var map = new google.maps.Map(document.getElementById('map'), myOptions);
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: "You are here!"
-    });
+    <script>
+      $(function() {
+        $("#start_date").datepicker({
+         dateFormat: 'dd-mm-yy',
+         minDate: 0,
+         maxDate: '3m',
+      });
+    })
     </script>
 
+
+
+
+
+    <%= render partial: "shared/footer" %>
