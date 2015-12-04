@@ -1,31 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 text-center">
-      <% @equipment.each do |equipment| %>
-      <ul>
-        <li>
-        <%= image_tag equipment.picture.url(:medium) %>
-        </li>
-        <li>
-        <%= equipment.name %>
-        </li>
-        <li>
-        <%= equipment.value %>
-        </li>
-        <li>
-        <%= equipment.description %>
-        </li>
-        <li>
-        <%= link_to "Delete Gear", user_equipment_path(current_user, equipment), method: :delete, data: { confirm: "Are you sure?" }%>
-        </li>
-        <li>
+      <% @equipment.each do |equip| %>
+        <%= image_tag equip.picture.url(:medium) %>
+        <%= equip.name %>
+        <%= equip.value %>
+        <%= equip.description %>
+        <%= link_to "Delete Gear", user_equipment_path(current_user, equip), method: :delete, data: { confirm: "Are you sure?" }%>
         <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
-        </li>
+        <div class="col-md-4">
+          <%= render 'availability/form', equip: equip %>
+        </div>
       <% end %>
       </ul>
     </div>
   </div>
 </div>
+
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 <% content_for(:after_js) do %>

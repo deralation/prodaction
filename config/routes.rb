@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resources :equipments
   end
 
-  resources :equipments, only: [:show, :create, :edit, :update, :new, :delete ] do
-    resources :avaibilities
+  resources :equipments do
+    resources :availabilities, only: [:create]
   end
 
 
