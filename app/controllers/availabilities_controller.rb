@@ -4,7 +4,7 @@ class AvailabilitiesController < ApplicationController
   def create
     @availability = current_user.availabilities.create(availability_param)
 
-    redirect_to availability_path(current_user, @availability), notice: "Availability added"
+    redirect_to user_equipments_path(current_user), notice: "Availability added"
   end
 
 
