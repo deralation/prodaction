@@ -2,15 +2,26 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 text-center">
       <% @equipment.each do |equip| %>
+      <ul>
+        <li>
         <%= image_tag equip.picture.url(:medium) %>
+        </li>
+        <li>
         <%= equip.name %>
+        </li>
+        <li>
         <%= equip.value %>
+        </li>
+        <li>
         <%= equip.description %>
+        </li>
         <%= link_to "Delete Gear", user_equipment_path(current_user, equip), method: :delete, data: { confirm: "Are you sure?" }%>
         <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
-        <div class="col-md-4">
-          <%= render 'availability/form', equip: equip %>
-        </div>
+          <li>
+            Add availability
+            <%= render 'availability/form', equip: equip %>
+          </li>
+      </ul>
       <% end %>
       </ul>
     </div>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :equipments do
-    resources :availabilities, only: [:create]
+    resources :availabilities, only: [:create , :show, :index]
   end
 
 
