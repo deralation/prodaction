@@ -1,19 +1,21 @@
 .navbar-brand {
   font-size: 2em;
   font-weight: 400;
-  color: #F;
-}
-
-
-.navbar-default.scrolled {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7;
 }
 
 .navbar-fixed-top {
-    background-color: transparent;
-    border-color: transparent;
-    transition: all 0.3s linear;
+  background-color: transparent;
+  border-color: transparent;
+  transition: all 0.3s linear;
 }
 
-
+.navbar-default.scrolled {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  .navbar-nav > li > a {
+    color: #777;
+  }
+  .navbar-brand {
+    color: #777;
+  }
+}
