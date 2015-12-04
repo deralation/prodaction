@@ -9,12 +9,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
-          <!-- The logo   -->
-          <a class="navbar-brand page-scroll" href="/#page-top">Share Gear</a>
-
         </div>
 
+
+          <!-- The logo   -->
+          <a class="navbar-brand" href="/#page-top">Share Gear</a>
 
             <!-- Starting unordered list class nav, navbar-nav -->
             <ul class="nav navbar-nav navbar-right">
@@ -34,7 +33,7 @@
                       <ul class="dropdown-menu">
                         <li><a href="#">My Gears</a></li>
                         <li><a href="#">Wish Lists</a></li>
-                        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                        <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
 
                         <li role="separator" class="divider"></li>
 
