@@ -13,7 +13,7 @@
 
 <div class="panel-body">
 <div class="container">
-    <%= form_for @equipment, url: new_user_equipment_path(current_user) do |f| %>
+    <%= form_for @equipment, url: new_user_equipments_path(current_user) do |f| %>
         <div class="row">
           <div class="col-md-4 select">
               <div class="form-group">
@@ -81,19 +81,6 @@
       <div class="actions">
           <%= f.submit "Save", class: "btn btn-primary" %>
       </div>
-
-
-      <script type="text/javascript">
-        $(function(){
-          handler = Gmaps.build('Google');
-          handler.buildMap({ internal: {id: 'map'}}, function(){
-            markers = handler.addMarkers(<%=raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-          });
-        })
-      </script>
-
       <% end %>
     </div>
 </div>
@@ -106,4 +93,13 @@
 
 </div>
 
-
+<script type="text/javascript">
+  $(function(){
+    handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  })
+</script>
