@@ -1,6 +1,10 @@
 class AvailabilitiesController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    @equipment = Equipment.where(id: params[:equipment_id])
+  end
+
   def create
     @availability = current_user.availabilities.create(availability_param)
 

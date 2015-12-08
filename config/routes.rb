@@ -4,20 +4,22 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :equipments
+
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } do
   end
 
   resources :users, only: [:show, :index, :new, :create, :edit, :update] do
-    resources :equipments, controller: :user_equipments
+    resources :equipments, controller: :user_equipments do
+
+    end
+  end
+  resources :equipments
+  resources :equipments, controller: :user_equipments do
+    resources :availabilities
   end
 
-  resources :user_equipments do
-    resources :availabilities, only: [:create , :show, :index, :edit, :update]
-  end
 
-  resources :gears
 
   get "/user/equipments/new", to: "equipments#new_fake", as: "fake_new_equipment"
 
