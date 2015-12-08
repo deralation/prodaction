@@ -1,3 +1,5 @@
+
+
 <div class="after-nav">
 
 
@@ -6,14 +8,12 @@
 <div class= "col-md-6 col-md-offset-3 center">
 
 <div class="panel panel-default">
-<div class="panel-heading">
-    List Your Gear
-</div>
-
-
-<div class="panel-body">
-<div class="container">
-    <%= form_for @equipment, url: new_user_equipment_path(current_user) do |f| %>
+  <div class="panel-heading">
+      List Your Gear
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @equipment, url: user_equipments_path(current_user) do |f| %>
         <div class="row">
           <div class="col-md-4 select">
               <div class="form-group">
@@ -22,9 +22,6 @@
                       <%= f.radio_button :type, "Audio", id: "type1" %>
                       Audio
                     </label>
-                  </div>
-              </div>
-          </div>
                     <label class="btn btn-primary">
                       <%= f.radio_button :type, "Video" %>
                       Video
@@ -38,72 +35,60 @@
                       Accessories
                     </label>
                   </div>
-
+              </div>
           </div>
-      </div>
-
-      <div class="row">
-                <div class="form-group">
-                  <label>Listing name</label>
-                  <%= f.text_field :name, placeholder: "Be clear and descriptive", class: "form-control" %>
-                </div>
-      </div>
-
-
-      <div class="row">
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label>Listing name</label>
+            <%= f.text_field :name, placeholder: "Be clear and descriptive", class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
           <div class="form-group">
             <label>Description</label>
             <%= f.text_area :description, rows: 5, placeholder: "Tell about your gear", class: "form-control" %>
           </div>
-      </div>
-
-      <div class="row">
+        </div>
+        <div class="row">
           <div class="form-group">
             <label>Address</label>
             <%= f.text_field :address, placeholder: "What is your address?", class: "form-control" %>
           </div>
-      </div>
-
-
-      <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Price per day</label>
-              <div class="input-group">
-                <div class="input-group-addon">$</div>
-                <%= f.text_field :value, placeholder: "eg. €100", class: "form-group" %>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Price per day</label>
+                <div class="input-group">
+                  <div class="input-group-addon">$</div>
+                  <%= f.text_field :value, placeholder: "eg. €100", class: "form-group" %>
+                </div>
               </div>
             </div>
-          </div>
-      </div>
-
-
-      <div class="actions">
-          <%= f.submit "Save", class: "btn btn-primary" %>
-      </div>
-
-
-      <script type="text/javascript">
-        $(function(){
-          handler = Gmaps.build('Google');
-          handler.buildMap({ internal: {id: 'map'}}, function(){
-            markers = handler.addMarkers(<%=raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-          });
-        })
-      </script>
-
+        </div>
+        <div class="actions">
+            <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
       <% end %>
     </div>
-</div>
-</div>
-
+  </div>
 </div>
 
 </div>
 
-
 </div>
 
 
+</div>
+
+<script type="text/javascript">
+  // $(function(){
+  //   handler = Gmaps.build('Google');
+  //   handler.buildMap({ internal: {id: 'map'}}, function(){
+  //     markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  //     handler.bounds.extendWith(markers);
+  //     handler.fitMapToBounds();
+  //   });
+  // })
+</script>
