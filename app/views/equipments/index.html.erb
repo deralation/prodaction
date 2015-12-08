@@ -22,7 +22,9 @@
   </div>
   <div id="article">
     <div class="row">
-
+      <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
+      <%= text_field_tag :search, params[:search], style: "color: black" %>
+      <%= submit_tag "Search", :name => nil %>
         <div class="row">
           <div class="col-md-3">
             <%= text_field_tag :start_date, placeholder: "Start Date", class: "form-control" %>
@@ -42,14 +44,12 @@
             <%= check_box_tag "q[equip_type_eq_any][]", "Smthgn" %> Smthng
           </div>
         </div>
-
-        <div class="row">
-
-        </div>
-
+        <% end %>
     </div>
   </div>
 </div>
+
+
 
 
 <div class="container">
