@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   root to: 'pages#home'
 
   resources :equipments
@@ -15,6 +17,9 @@ Rails.application.routes.draw do
     resources :availabilities, only: [:create , :show, :index, :edit, :update]
   end
 
+  resources :gears
 
   get "/user/equipments/new", to: "equipments#new_fake", as: "fake_new_equipment"
+
+
 end
