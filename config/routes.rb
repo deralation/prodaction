@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :index, :new, :create, :edit, :update] do
-    resources :equipments, controller: :user_equipments
-  end
+    resources :equipments, controller: :user_equipments do
 
-  resources :user_equipments do
-    resources :availabilities, only: [:create , :show, :index, :edit, :update]
+    end
   end
-
   resources :equipments
+  resources :equipments, controller: :user_equipments do
+    resources :availabilities
+  end
+
 
   get "/user/equipments/new", to: "equipments#new_fake", as: "fake_new_equipment"
 end
