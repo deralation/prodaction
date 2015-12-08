@@ -1,5 +1,4 @@
 class EquipmentsController < ApplicationController
-  before_action :set_equipment, only: [:show, :edit, :update]
   before_filter :authenticate_user!
 
   def new_fake
@@ -15,7 +14,6 @@ class EquipmentsController < ApplicationController
   end
 
   def new
-    # @equipment = current_user.equipment.build
     @equipment = Equipment.new
   end
 
@@ -29,17 +27,14 @@ class EquipmentsController < ApplicationController
   end
 
   def show
-
-
+    @equipment = Equipment.find(params[:id])
     @equipment_coordinates = { lat: @equipment.lat, lng: @equipment.lng }
   end
 
   def edit
-
   end
 
   def update
-
       respond_to do |format|
       if @equipment.update(equipment_params)
         format.html { redirect_to user_equipments_path, notice: 'Equipment was successfully updated.' }
@@ -57,12 +52,8 @@ class EquipmentsController < ApplicationController
 
   private
 
-  def set_equipment
-     @equipment = Equipment.find(params[:id])
-  end
-
   def equipment_params
-    params.require(:equipment).permit(:name, :description, :address, :value, :picture )
+    params.require(:equipment).permit(:name, :value, :description, :picture, :address)
   end
 
   def find_user
