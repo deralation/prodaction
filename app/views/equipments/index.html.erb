@@ -1,3 +1,57 @@
+
+<div id="wrapper">
+  <div id="sidebar">
+    <div id="widget" class="sticky">
+      <div id="map" style="width: 50%; height: 300px;"></div>
+        <% content_for(:after_js) do %>
+                  <%= javascript_tag do %>
+                    $(document).on('ready', function() {
+                    console.log(<%= raw @markers.to_json %>);
+                      handler = Gmaps.build('Google');
+                      handler.buildMap({ internal: { id: 'map' } }, function(){
+
+                        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                        handler.bounds.extendWith(markers);
+                        handler.fitMapToBounds();
+                      });
+                    })
+          <% end %>
+        <% end %>
+    </div>
+
+  </div>
+  <div id="article">
+    <div class="row">
+
+        <div class="row">
+          <div class="col-md-3">
+            <%= text_field_tag :start_date, placeholder: "Start Date", class: "form-control" %>
+          </div>
+          <div class="col-md-3">
+            <%= text_field_tag :end_date, placeholder: "End Date", class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Video
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Audio
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[equip_type_eq_any][]", "Smthgn" %> Smthng
+          </div>
+        </div>
+
+        <div class="row">
+
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -7,7 +61,7 @@
         <%= equip.value %>
         <%= equip.description %>
         <% equip.availabilities.each do |avaliability| %>
-          <%= render 'availability/show', availability: avaliability %>
+          <%= render 'availabilities/show', availability: avaliability %>
         <% end %>
         <%= link_to "Book"%>
       <% end %>
@@ -16,18 +70,4 @@
 </div>
 
 
-<div id="map" style="width: 100%; height: 600px;"></div>
-<% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-            $(document).on('ready', function() {
-            console.log(<%= raw @markers.to_json %>);
-              handler = Gmaps.build('Google');
-              handler.buildMap({ internal: { id: 'map' } }, function(){
 
-                markers = handler.addMarkers(<%= raw @markers.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
-              });
-            })
-  <% end %>
-<% end %>
