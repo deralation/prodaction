@@ -1,36 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 text-center">
-      <% @equipment.each do |equip| %>
-      <ul>
-        <li>
+    <div class="col-xs-12">
+      <% @equipments.each do |equip| %>
         <%= image_tag equip.picture.url(:medium) %>
-        </li>
-        <li>
         <%= equip.name %>
-        </li>
-        <li>
         <%= equip.value %>
-        </li>
-        <li>
         <%= equip.description %>
-        </li>
-        <li>
-          <% if equip.availabilities.any? %>
-            <% equip.availabilities.each do |avail| %>
-              <%= render 'availability/show', availability: avail %>
-            <% end %>
-          <% end %>
-        </li>
-        <%= link_to "Delete Gear", user_equipment_path(current_user, equip), method: :delete, data: { confirm: "Are you sure?" }%>
-        <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
-          <li>
-            Add availability
-            <%= render 'availability/form', equip: equip %>
-          </li>
-      </ul>
+        <% equip.availabilities.each do |avaliability| %>
+          <%= render 'availability/show', availability: avaliability %>
+        <% end %>
+        <%= link_to "Book"%>
       <% end %>
-      </ul>
     </div>
   </div>
 </div>
@@ -49,5 +29,5 @@
                 handler.fitMapToBounds();
               });
             })
-          <% end %>
-          <% end %>
+  <% end %>
+<% end %>

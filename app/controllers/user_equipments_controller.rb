@@ -1,12 +1,12 @@
-class EquipmentsController < ApplicationController
+class UserEquipmentsController < ApplicationController
+  before_filter :authenticate_user!
+
+  def new_fake
+    redirect_to new_user_equipment_path(current_user)
+  end
 
   def index
-    # @equipment = Equipment.where('name LIKE ?', "%#{search}%")
-    if params[:search]
-      @equipments = Equipment.search(params[:search]).order("created_at DESC")
-    else
-      @equipments = Equipment.all.order('created_at DESC')
-    end
+    @equipment = current_user.equipment
     @markers = Gmaps4rails.build_markers(@equipment) do |equipment, marker|
       marker.lat equipment.latitude if equipment.latitude
       marker.lng equipment.longitude if equipment.longitude

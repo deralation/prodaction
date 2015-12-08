@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 text-center">
+      <% @equipment.each do |equip| %>
+      <ul>
+        <li>
+        <%= image_tag equip.picture.url(:medium) %>
+        </li>
+        <li>
+        <%= equip.name %>
+        </li>
+        <li>
+        <%= equip.value %>
+        </li>
+        <li>
+        <%= equip.description %>
+        </li>
+        <li>
+          <% if equip.availabilities.any? %>
+            <% equip.availabilities.each do |avail| %>
+              <%= render 'availability/show', availability: avail %>
+            <% end %>
+          <% end %>
+        </li>
+        <%= link_to "Delete Gear", user_equipment_path(current_user, equip), method: :delete, data: { confirm: "Are you sure?" }%>
+        <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
+          <li>
+            Add availability
+            <%= render 'availability/form', equip: equip %>
+          </li>
+      </ul>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+<% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).on('ready', function() {
+            console.log(<%= raw @markers.to_json %>);
+              handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function(){
+
+                markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+            })
+          <% end %>
+          <% end %>
