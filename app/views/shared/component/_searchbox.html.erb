@@ -5,11 +5,21 @@
             <div class="col-md-10 col-md-offset-1">
               <div class="form-section">
                 <div class="row">
+
+                   <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
+                      <p>
+                        <%= text_field_tag :search, params[:search], style: "color: black" %>
+                        <%= submit_tag "Search", :name => nil %>
+                      </p>
+                   <% end %>
+
+
                     <form role="form">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="sr-only" for="location">Location</label>
-                          <input type="email" class="form-control" id="location" placeholder="Search for Gear : E.g. Canon 5D Mark III ">
+                          <!-- <input type="email" class="form-control" id="location" placeholder="Search for Gear : E.g. Canon 5D Mark III "> -->
+
                         </div>
                       </div>
                       <div class="col-md-3">
