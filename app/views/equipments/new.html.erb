@@ -1,6 +1,10 @@
 
-<h2 class="text-center">List Your Gear</h2>
+<div class="panel panel-default">
+<div class="panel-heading">
+    List Your Gear
+</div>
 
+<div class="panel-body">
 <div class="container">
     <%= form_for @equipment, url: new_user_equipment_path(current_user) do |f| %>
         <div class="row">
@@ -11,6 +15,9 @@
                       <%= f.radio_button :type, "Audio", id: "type1" %>
                       Audio
                     </label>
+                  </div>
+              </div>
+          </div>
                     <label class="btn btn-primary">
                       <%= f.radio_button :type, "Video" %>
                       Video
@@ -24,7 +31,7 @@
                       Accessories
                     </label>
                   </div>
-              </div>
+
           </div>
       </div>
 
@@ -82,7 +89,8 @@
 
       <% end %>
     </div>
-
+</div>
+</div>
 
 
 
