@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
       @equipment.each do |equip|
 
-        not_available = equipment.availability.where(
+        not_available = equipment.Fwhere(
             "(? <=start_date AND start_date <=?)
               OR (? <= end_date AND end_date <=?
               OR(start_date < ? AND ? < end_date)",

@@ -3,27 +3,28 @@
     <div class="col-xs-12 col-sm-4 text-center">
 
       <ul>
+        <% current_user.equipment.each do |e| %>
+        <% if e == current_user.equipment.last %>
         <li>
-        <%= image_tag @equipment.picture.url(:medium) %>
+
+        <%= image_tag e.picture.url(:medium) %>
+
         </li>
 
         <li>
-        <%= @equipment.name %>
+
+        <%= e.name %>
         </li>
         <li>
-        <%= @equipment.value %>
+        <%= e.value %>
         </li>
         <li>
-        <%= @equipment.description %>
+        <%= e.description %>
         </li>
-        <li>
-          <% if @equipment.availabilities.any? %>
-            <% @equipment.availabilities.each do |avail| %>
-              <%= render 'availability/show', availability: avail %>
-            <% end %>
-          <% end %>
-        </li>
+        <%end%>
+      <%end%>
 
     </div>
   </div>
 </div>
+

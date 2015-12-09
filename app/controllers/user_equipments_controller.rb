@@ -18,10 +18,9 @@ class UserEquipmentsController < ApplicationController
   end
 
   def create
-
     @equipment = current_user.equipment.build(equipment_params)
     if @equipment.save
-      redirect_to user_equipment_path(current_user, @equipment)
+      render "user_equipments/show"
     else
       render "user_equipments/new"
     end
@@ -54,7 +53,7 @@ class UserEquipmentsController < ApplicationController
   private
 
   def equipment_params
-    params.require(:equipment).permit(:name, :value, :description, :picture, :address)
+    params.require(:equipment).permit(:name, :value, :description, :picture, :address, :start_date, :end_date)
   end
 
   def find_user
