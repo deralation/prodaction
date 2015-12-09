@@ -39,10 +39,9 @@ class PagesController < ApplicationController
           ).limit(1)
 
         if not_available.length > 0
-
-
+          @arrEquipments.delete(equipment)
         end
-
+      end
+    end
   end
-
 end
