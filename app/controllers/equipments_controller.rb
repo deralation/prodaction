@@ -7,9 +7,9 @@ class EquipmentsController < ApplicationController
     else
       @equipments = Equipment.all.order('created_at DESC')
     end
-    @markers = Gmaps4rails.build_markers(@equipment) do |equipment, marker|
-      marker.lat equipment.latitude if equipment.latitude
-      marker.lng equipment.longitude if equipment.longitude
+    @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
+      markers.lat equipments.latitude if equipments.latitude
+      markers.lng equipments.longitude if equipments.longitude
     end
   end
 
