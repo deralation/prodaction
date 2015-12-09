@@ -34,7 +34,7 @@
                 <!-- Dropdown menu from current email -->
                 <li> <%= image_tag current_user.picture, class: "avatar" %> </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><%= link_to "My Gears", user_equipments_path(current_user) %></li>
                         <li><a href="#">Wish Lists</a></li>

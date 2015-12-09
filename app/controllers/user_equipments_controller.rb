@@ -27,9 +27,8 @@ class UserEquipmentsController < ApplicationController
   end
 
   def show
-    @equipment = user_equipment_path
     @equipment = Equipment.find(params[:id])
-    @equipment_coordinates = { lat: @equipment.lat, lng: @equipment.lng }
+    @equipment_coordinates = { lat: @equipment.latitude, lng: @equipment.longitude } if @equipment.latitude
   end
 
   def edit
