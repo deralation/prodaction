@@ -21,16 +21,15 @@ class UserEquipmentsController < ApplicationController
 
     @equipment = current_user.equipment.build(equipment_params)
     if @equipment.save
-      redirect_to new_equipment_availability_path(@equipment)
+      redirect_to user_equipment_path(current_user, @equipment)
     else
-      render "user_equipment/new"
+      render "user_equipments/new"
     end
   end
 
   def show
-    @equipment = user_equipment_path
     @equipment = Equipment.find(params[:id])
-    @equipment_coordinates = { lat: @equipment.lat, lng: @equipment.lng }
+    @equipment_coordinates = { lat: @equipment.latitude, lng: @equipment.longitude } if @equipment.latitude
   end
 
   def edit

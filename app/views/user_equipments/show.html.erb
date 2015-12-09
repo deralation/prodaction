@@ -1,28 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 text-center">
-      <% @equipment.each do |equip| %>
+
       <ul>
         <li>
-        <%= image_tag equip.picture.url(:medium) %>
+        <%= image_tag @equipment.picture.url(:medium) %>
+        </li>
+
+        <li>
+        <%= @equipment.name %>
         </li>
         <li>
-        <%= equip.name %>
+        <%= @equipment.value %>
         </li>
         <li>
-        <%= equip.value %>
+        <%= @equipment.description %>
         </li>
         <li>
-        <%= equip.description %>
-        </li>
-        <li>
-          <% if equip.availabilities.any? %>
-            <% equip.availabilities.each do |avail| %>
+          <% if @equipment.availabilities.any? %>
+            <% @equipment.availabilities.each do |avail| %>
               <%= render 'availability/show', availability: avail %>
             <% end %>
           <% end %>
         </li>
-      <%end%>
+
     </div>
   </div>
 </div>

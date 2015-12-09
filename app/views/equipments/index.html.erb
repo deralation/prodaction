@@ -1,45 +1,74 @@
-  <br>
 
-  <br>
 
-  <div id="article">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
-        <%= text_field_tag :search, params[:search], style: "color: black" %>
-        <%= submit_tag "Search", :name => nil %>
+
+    <div id="wrapper-list" c >
+
+       <div id="article">
           <div class="row">
-            <div class="col-md-3">
-              <%= date_field :start_date, placeholder: "From", class: "form-control" %>
-            </div>
-            <div class="col-md-3">
-              <%= date_field :end_date, placeholder: "Until", class: "form-control" %>
+            <div class="col-xs-12">
+              <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
+              <%= text_field_tag :search, params[:search], style: "color: black" %>
+              <%= submit_tag "Search", :name => nil %>
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= date_field :start_date, placeholder: "From", class: "form-control" %>
+                  </div>
+                  <div class="col-md-3">
+                    <%= date_field :end_date, placeholder: "Until", class: "form-control" %>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Video
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Audio
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[equip_type_eq_any][]", "Smthgn" %> Smthng
+                  </div>
+                </div>
+
+                <hr>
+              <% end %>
             </div>
           </div>
-          <hr>
-          <div class="row">
-            <div class="col-md-4">
-              <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Video
-            </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Audio
-            </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[equip_type_eq_any][]", "Smthgn" %> Smthng
-            </div>
-          </div>
+        </div>
 
-          <hr>
-        <% end %>
+      <div id="my-list">
+        <div id="row" >
+          <% @equipments.each do |equip| %>
+            <div class="col-md-6" >
+              <div>
+                <%= image_tag equip.picture.url(:medium) %>
+              </div>
+              <div class="product-info">
+                <%= image_tag equip.user.picture, class: "avatar user-picture" %>
+                <div class="product-details">
+                  <%= equip.user.first_name %>'s <%= equip.name %>
+                </div>
+                <div class="product-price">€ <%= equip.value %> per day</div>
+
+
+                <% equip.availabilities.each do |avaliability| %>
+                  <%= render 'availabilities/show', availability: avaliability %>
+                <% end %>
+
+              </div>
+            </div>
+          <% end %>
+
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<div id="wrapper">
-  <div id="sidebar">
-    <div id="widget" class="sticky">
-      <div id="map" style="width: 100%; height: 500px;"></div>
+
+    </div>
+
+
+      <div id="wrapper-map">
+        <div id="map"></div>
+      </div>
         <% content_for(:after_js) do %>
                   <%= javascript_tag do %>
                     $(document).on('ready', function() {
@@ -54,49 +83,8 @@
                     })
           <% end %>
         <% end %>
-    </div>
-  </div>
-</div>
 
-  <div class="row" id="list">
-      <% @equipments.each do |equip| %>
-        <%= image_tag equip.picture.url(:medium) %>
-        <%= equip.name %>
-        <%= equip.value %>
-        <%= equip.description %>
-        <% equip.availabilities.each do |avaliability| %>
-          <%= render 'availabilities/show', availability: avaliability %>
-        <% end %>
-        <%= link_to "Book"%>
-      <% end %>
-    </div>
 
-<script>
-
-  $(function(){ // document ready
-
-    if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
-
-      var stickyTop = $('.sticky').offset().top; // returns number
-
-      $(window).scroll(function(){ // scroll event
-
-        var windowTop = $(window).scrollTop(); // returns number
-
-        if (stickyTop < windowTop){
-          $('.sticky').css({ position: 'fixed', top: 0 });
-        }
-        else {
-          $('.sticky').css('position','static');
-        }
-
-      });
-
-    }
-
-  });
-
-</script>
 
 
 
