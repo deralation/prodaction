@@ -15,13 +15,6 @@
         <li>
         <%= equip.description %>
         </li>
-        <li>
-          <% if equip.availabilities.any? %>
-            <% equip.availabilities.each do |avail| %>
-              <%= render 'availability/show', availability: avail %>
-            <% end %>
-          <% end %>
-        </li>
       <%end%>
     </div>
   </div>

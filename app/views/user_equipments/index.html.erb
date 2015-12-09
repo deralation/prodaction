@@ -15,18 +15,9 @@
         <li>
         <%= equip.description %>
         </li>
-        <li>
-          <% if equip.availabilities.any? %>
-            <% equip.availabilities.each do |avail| %>
-              <%= render 'availability/show', availability: avail %>
-            <% end %>
-          <% end %>
-        </li>
         <%= link_to "Delete Gear", user_equipment_path(current_user, equip), method: :delete, data: { confirm: "Are you sure?" }%>
         <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
           <li>
-            Add availability
-            <%= render 'availability/form', equip: equip %>
           </li>
       </ul>
       <% end %>

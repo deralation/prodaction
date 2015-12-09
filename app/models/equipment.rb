@@ -8,7 +8,7 @@ class Equipment < ActiveRecord::Base
   validates :description, presence: true, length: {maximum: 500}
   validates :address, presence: true
 
-  has_many :availabilities
+  has_many :availabilities, dependent: :destroy
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
