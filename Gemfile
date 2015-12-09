@@ -21,6 +21,7 @@ gem 'paperclip'
 gem 'geocoder'
 gem 'coffee-rails'
 gem 'gmaps4rails'
+gem 'ransack'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

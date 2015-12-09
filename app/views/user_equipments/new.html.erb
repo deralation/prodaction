@@ -16,7 +16,7 @@
 
 <div class="panel-body">
 <div class="container">
-    <%= form_for @equipment, url: new_user_equipments_path(current_user) do |f| %>
+    <%= form_for @equipment, url: user_equipments_path(current_user) do |f| %>
         <div class="row">
           <div class="col-md-4 select">
               <div class="form-group">
