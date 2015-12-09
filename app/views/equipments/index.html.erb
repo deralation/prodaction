@@ -39,7 +39,7 @@
 <div id="wrapper">
   <div id="sidebar">
     <div id="widget" class="sticky">
-      <div id="map" style="width: 100%; height: 500px;"></div>
+      <div id="map" style="width: 100%; height: 600px;"></div>
         <% content_for(:after_js) do %>
                   <%= javascript_tag do %>
                     $(document).on('ready', function() {
@@ -64,9 +64,8 @@
         <%= equip.name %>
         <%= equip.value %>
         <%= equip.description %>
-        <% equip.availabilities.each do |avaliability| %>
-          <%= render 'availabilities/show', availability: avaliability %>
-        <% end %>
+        <%= equip.start_date %>
+        <%= equip.end_date %>
         <%= link_to "Book"%>
       <% end %>
     </div>

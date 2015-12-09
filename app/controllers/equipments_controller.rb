@@ -13,43 +13,6 @@ class EquipmentsController < ApplicationController
     end
   end
 
-  def new
-    @equipment = Equipment.new
-  end
-
-  def create
-    @equipment = current_user.equipment.build(equipment_params)
-    if @equipment.save
-      redirect_to user_equipments_path(current_user, @equipment)
-    else
-      render "equipment/new"
-    end
-  end
-
-  def show
-    @equipment = user_equipment_path
-    @equipment = Equipment.find(params[:id])
-    @equipment_coordinates = { lat: @equipment.lat, lng: @equipment.lng }
-  end
-
-  def edit
-  end
-
-  def update
-      respond_to do |format|
-      if @equipment.update(equipment_params)
-        format.html { redirect_to user_equipments_path, notice: 'Equipment was successfully updated.' }
-        format.json { head :no_content }
-      end
-    end
-  end
-
-
-  def destroy
-    @equipment = current_user.equipment.find(params[:id])
-    @equipment.destroy
-    redirect_to user_equipments_path(current_user.equipment)
-  end
 
   private
 

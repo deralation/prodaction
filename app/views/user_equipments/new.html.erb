@@ -7,11 +7,7 @@
 
 <div class= "col-md-6 col-md-offset-3">
 
-
-
-
-
-    <%= form_for @equipment, url: user_equipments_path(current_user) do |f| %>
+<%= form_for @equipment, url: user_equipments_path(current_user) do |f| %>
 
 <h2 class="text-center">List Your Gear</h2>
 
@@ -92,18 +88,23 @@
             </div>
           </div>
 
-        <%= fields_for Availability.new do |a| %>
           <div class="row">
 
               <label>Available From</label>
-              <%= a.date_field :start_date, placeholder: 'Start Date' %>
+              <%= f.date_field :start_date, placeholder: 'Start Date' %>
 
 
               <label>Till</label>
-              <%= a.date_field :end_date, placeholder: 'End Date' %>
+              <%= f.date_field :end_date, placeholder: 'End Date' %>
 
           </div>
-        <% end %>
+
+          <div class="row">
+            <label>Picture</label>
+              <%= f.label :picture, placeholder: 'Picture' %>
+              <%= f.file_field :picture %>
+          </div>
+
          <div class="row">
         <div class="actions">
             <%= f.submit "Save", class: "btn btn-primary" %>
@@ -118,11 +119,6 @@
 </div>
 
  <% end %>
-
-
-
-
-
 
 </div>
 
