@@ -1,31 +1,37 @@
+  <br>
+
+  <br>
+
   <div id="article">
     <div class="row">
-      <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
-      <%= text_field_tag :search, params[:search], style: "color: black" %>
-      <%= submit_tag "Search", :name => nil %>
-        <div class="row">
-          <div class="col-md-3">
-            <%= date_field :start_date, placeholder: "Start Date", class: "form-control" %>
+      <div class="col-xs-12">
+        <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
+        <%= text_field_tag :search, params[:search], style: "color: black" %>
+        <%= submit_tag "Search", :name => nil %>
+          <div class="row">
+            <div class="col-md-3">
+              <%= date_field :start_date, placeholder: "From", class: "form-control" %>
+            </div>
+            <div class="col-md-3">
+              <%= date_field :end_date, placeholder: "Until", class: "form-control" %>
+            </div>
           </div>
-          <div class="col-md-3">
-            <%= date_field :end_date, placeholder: "Date", class: "form-control" %>
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Video
+            </div>
+            <div class="col-md-4">
+              <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Audio
+            </div>
+            <div class="col-md-4">
+              <%= check_box_tag "q[equip_type_eq_any][]", "Smthgn" %> Smthng
+            </div>
           </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-4">
-            <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Video
-          </div>
-          <div class="col-md-4">
-            <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Audio
-          </div>
-          <div class="col-md-4">
-            <%= check_box_tag "q[equip_type_eq_any][]", "Smthgn" %> Smthng
-          </div>
-        </div>
 
-        <hr>
-      <% end %>
+          <hr>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -52,7 +58,7 @@
   </div>
 </div>
 
-  <div class="row">
+  <div class="row" id="list">
       <% @equipments.each do |equip| %>
         <%= image_tag equip.picture.url(:medium) %>
         <%= equip.name %>
