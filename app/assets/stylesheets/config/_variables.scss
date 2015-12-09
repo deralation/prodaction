@@ -1,4 +1,21 @@
 /* -------------------------------------
+ * Icon Fonts
+ * ------------------------------------- */
+@font-face {
+  font-family: 'foto';
+  src: font-url('foto.eot?37550548');
+  src: font-('foto.eot?37550548#iefix') format('embedded-opentype'),
+       font-('foto.woff?37550548') format('woff'),
+       font-('foto.ttf?37550548') format('truetype'),
+       font-('foto.svg?37550548#foto') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+/* -------------------------------------
  * Fonts
  * ------------------------------------- */
 // Google fonts
@@ -35,6 +52,11 @@ $blue: #889FF5;
 $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
+$light-blue: #F9FDFF;
+$dark-gray: #2E2E2E;
+$light-gray: #909090;
+$form-bg: #F8F9FD;
+$form-border: #979797;
 
 // Gray scale
 $gray-darker:  lighten(#000, 13.5%); // #222
