@@ -18,6 +18,7 @@ class UserEquipmentsController < ApplicationController
   end
 
   def create
+
     @equipment = current_user.equipment.build(equipment_params)
     if @equipment.save
       redirect_to new_equipment_availability_path(@equipment)

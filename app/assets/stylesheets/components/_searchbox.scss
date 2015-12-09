@@ -1,13 +1,92 @@
-// .search {
+.searchForm {
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    padding: 0 15px 10px;
+    background-color: #fff;
+}
 
-// }
-// .search .form-section{
-//  background:rgba(0,0,0,0.6);
-//  border: 2px solid #414141;
-//  border-radius: 5px;
-//  padding: 10px;
-// }
+
+// modify bootstrap button
+
+.btn {
+    padding: 14px 24px;
+    border: 1px solid $blue;
+    letter-spacing: 1px;
+
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+    border: 1px solid $blue;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+
+/***********************
+  OUTLINE BUTTONS
+************************/
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+.btn-primary.outline {
+    border: 1px solid $light-gray;
+    color: $dark-gray;
+    font-size: 0.9em;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: $blue;
+    border-color: $blue;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: $blue;
+    color: $blue;
+    background: $form-bg;
+    box-shadow: none;
+}
+
+
+// ICON
+
+.gear_icon {
+  height: 35px;
+  padding-bottom: 5px;
+}
 
 .sr-only {
   width: 300px;
+}
+
+
+// Form control
+.form-control {
+  background: $form-bg;
+  box-shadow: none;
+  border: 1px solid $form-border;
+}
+
+.form-control :focus {
+  border-color: $blue;
+  outline: 1px solid $blue;
+  box-shadow:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -moz-transition: none !important;
+  -webkit-transition: none !important;
+
 }

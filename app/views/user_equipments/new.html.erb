@@ -1,46 +1,69 @@
 
+<div class="container">
 
-<div class="after-nav">
 
 
 <div class="row">
 
-<div class= "col-md-6 col-md-offset-3 center">
-
-<div class="panel panel-default">
-
-<div class="panel-heading">
-    List Your Gear
-</div>
+<div class= "col-md-6 col-md-offset-3">
 
 
-<div class="panel-body">
-<div class="container">
+
+
+
     <%= form_for @equipment, url: user_equipments_path(current_user) do |f| %>
+
+<h2 class="text-center">List Your Gear</h2>
+
+             <div class="row">
+
+                <div class="form-group text-center">
+                    <div class="form-group" data-toggle= "buttons">
+
+                      <label class="btn btn-primary btn-lg outline col-md-3">
+                        <%= f.radio_button :type, "Audio" %>
+                         <%= image_tag "audio.svg", class: "gear_icon"%>
+                         <br>
+                        Audio
+                      </label>
+
+                      <label class="btn btn-primary btn-lg outline  col-md-3">
+                        <%= f.radio_button :type, "Video" %>
+                        <%= image_tag "video.svg", class: "gear_icon"%>
+                         <br>
+                        Video
+                      </label>
+
+                      <label class="btn btn-primary btn-lg outline col-md-3">
+                        <%= f.radio_button :type, "Photo" %>
+                         <span class="icon-video"></span>
+                         <span class="icon-photo"></span>
+                         <span class="icon-home"></span>
+                         <br>
+                        Photo
+                      </label>
+
+
+                      <label class="btn btn-primary btn-lg outline col-md-3">
+                        <%= f.radio_button :type, "Accessories" %>
+                        <%= image_tag "other.svg", class: "gear_icon"%>
+                         <br>
+                        Other
+                      </label>
+
+                    </div>
+                </div>
+            </div>
+
         <div class="row">
-          <div class="col-md-4 select">
-              <div class="form-group">
-                  <div class="btn-group" data-toggle= "buttons">
-                    <label class="btn btn-primary">
-                      <%= f.radio_button :type, "Audio", id: "type1" %>
-                      Audio
-                    </label>
-                    <label class="btn btn-primary">
-                      <%= f.radio_button :type, "Video" %>
-                      Video
-                    </label>
-                    <label class="btn btn-primary">
-                      <%= f.radio_button :type, "Photo" %>
-                      Photo
-                    </label>
-                    <label class="btn btn-primary">
-                      <%= f.radio_button :type, "Accessories" %>
-                      Accessories
-                    </label>
-                  </div>
-              </div>
+            <div class="form-group">
+              <label>Condition</label>
+              <%= f.select :condition, [["Used, Like New","Used, Like New"], ["Used, Very Good","Used, Very Good"], ["Used, Good","Used, Good"],  ["Used, Acceptable","Used, Acceptable"]],prompt: "Select...", class: "form-control" %>
+            </div>
           </div>
-        </div>
+
+
+
         <div class="row">
           <div class="form-group">
             <label>Listing name</label>
@@ -60,30 +83,45 @@
           </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Price per day</label>
-                <div class="input-group">
-                  <div class="input-group-addon">$</div>
-                  <%= f.text_field :value, placeholder: "eg. €100", class: "form-group" %>
-                </div>
+            <div class="form-group">
+              <label>Price per day</label>
+              <div class="input-group">
+                <div class="input-group-addon">€</div>
+                <%= f.text_field :value, placeholder: "eg. €100", class: "form-control" %>
               </div>
             </div>
           </div>
+
+        <%= fields_for Availability.new do |a| %>
+          <div class="row">
+
+              <label>Available From</label>
+              <%= a.date_field :start_date, placeholder: 'Start Date' %>
+
+
+              <label>Till</label>
+              <%= a.date_field :end_date, placeholder: 'End Date' %>
+
+          </div>
+        <% end %>
+         <div class="row">
+        <div class="actions">
+            <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
       </div>
 
 
-      <div class="actions">
-          <%= f.submit "Save", class: "btn btn-primary" %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+     </div>
+
 
 </div>
 
-</div>
+ <% end %>
+
+
+
+
 
 
 </div>

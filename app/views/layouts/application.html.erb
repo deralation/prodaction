@@ -14,7 +14,20 @@
   <body>
     <!-- Notify your password is validated -->
 
-    <%= render 'shared/navbar' %>
+    <% #render 'shared/navbar' %>
+
+<%
+if current_page?('/')
+ navClassName = "navbar-default"
+else
+  navClassName = "navbar-inverse"
+end
+%>
+
+
+
+    <%= render :partial => 'shared/navbar', :locals => { :test =>  navClassName } %>
+
 
     <%= render 'shared/messages' %>
 
