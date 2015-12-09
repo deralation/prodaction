@@ -23,3 +23,29 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+#wrapper {
+  width:960px;
+  margin-left:80px;
+}
+
+#sidebar {
+  float: right;
+  width: 340px;
+}
+
+#sidebar #widget {
+  width: 340px;
+  height: 600px;
+  margin-bottom: 10px;
+  border-bottom:1px, solid #ccc;
+}
+
+#article {
+  width: 560px;
+  margin-left:80px;
+}
+
+#list {
+  margin-left:80px;
+}

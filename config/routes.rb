@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     end
   end
+
   resources :equipments
   resources :equipments, controller: :user_equipments do
     resources :availabilities
