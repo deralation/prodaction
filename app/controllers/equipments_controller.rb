@@ -13,6 +13,11 @@ class EquipmentsController < ApplicationController
     end
   end
 
+  def show
+    @equipment = Equipment.find(params[:id])
+  end
+
+
 
   private
 

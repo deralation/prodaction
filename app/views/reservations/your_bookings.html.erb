@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 text-center">
+     <h1>Your Bookings </h1>
+      <% @bookings.each do |book| %>
+      <ul>
+        <li>
+        <%= image_tag book.equipment.picture.url(:medium) %>
+        </li>
+        <li>
+        <%= book.equipment.name %>
+        </li>
+        <li>
+        <%= book.start_date %>
+        </li>
+        <li>
+        <%= book.end_date %>
+        </li>
+        <li>
+        <%= book.equipment.value %>
+        </li>
+      </ul>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+

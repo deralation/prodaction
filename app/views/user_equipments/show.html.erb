@@ -6,13 +6,9 @@
         <% current_user.equipment.each do |e| %>
         <% if e == current_user.equipment.last %>
         <li>
-
         <%= image_tag e.picture.url(:medium) %>
-
         </li>
-
         <li>
-
         <%= e.name %>
         </li>
         <li>

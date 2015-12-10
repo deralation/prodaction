@@ -1,5 +1,6 @@
 class Equipment < ActiveRecord::Base
   belongs_to :user
+  has_many :reservations
 
   validates :name, presence: true, length: {maximum: 50}
   validates :description, presence: true, length: {maximum: 500}
