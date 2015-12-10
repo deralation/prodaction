@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservation.create(reservation_params)
-    redirect_to @reservation.equipment
+    flash[:notice] = "Successfully booked"
   end
 
   private
