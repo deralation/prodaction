@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 text-center">
+     <h1>Your Reservations </h1>
+     <% @equipment.each do |equip| %>
+      <% equip.reservations.each do |reservation| %>
+      <ul>
+        <li>
+        <%= image_tag reservation.equipment.picture.url(:medium) %>
+        </li>
+        <li>
+        <%= reservation.equipment.name %>
+        </li>
+        <li>
+        <%= reservation.start_date %>
+        </li>
+        <li>
+        <%= reservation.end_date %>
+        </li>
+        <li>
+        <%= reservation.equipment.value %>
+        </li>
+      </ul>
+      <% end %>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
