@@ -1,24 +1,44 @@
 <h1>Gears#show</h1>
 <p>Find me in app/views/gears/show.html.erb</p>
 
-<%= @equipment.each do |equip| %>
-<div class="product-info">
-  <%= image_tag equip.user.picture, class: "avatar user-picture" %>
-</div>
-<% end %>
+
 
 <div id="my-list">
   <div id="row" >
-    <% @equipment.each do |equip| %>
+
+    <div class="product-info">
+      <%= image_tag @equipment.user.picture, class: "avatar user-picture" %>
+    </div>
+    <div class="product-details">
+      <%= @equipment.user.first_name %>
+    </div>
+    <div class="product-details">
+      <% @equipment.user.description %>
+    </div>
+    <div class="product-details">
+      <%= @equipment.user.occupation %>
+    </div>
+
+  </div>
+</div>
+
+<div id="my-list">
+  <div id="row" >
+
       <div class="col-md-6" >
         <div>
-          <%= image_tag equip.picture.url(:medium) %>
+          <%= image_tag @equipment.picture.url(:medium) %>
         </div>
           <div class="product-details">
-            <%= equip.user.first_name %>'s <%= equip.name %>
+            <%= @equipment.user.first_name %>'s <%= @equipment.name %>
           </div>
-          <div class="product-price">€ <%= equip.value %> per day</div>
+          <div class="product-price">€ <%= @equipment.value %> per day</div>
         </div>
       </div>
-  <% end %>
+
+</div>
+
+
+<div class="col-md-4">
+  <%= render "reservations/form" %>
 </div>

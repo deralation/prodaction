@@ -39,12 +39,12 @@
           <% @equipments.each do |equip| %>
             <div class="col-md-6" >
               <div>
-                <%= image_tag equip.picture.url(:medium) %>
+                <%= link_to image_tag(equip.picture.url(:medium)), equipment_path(equip) %>
               </div>
               <div class="product-info">
-                <%= image_tag equip.user.picture, class: "avatar user-picture" %>
+                <%= link_to image_tag equip.user.picture, class: "avatar user-picture" %>
                 <div class="product-details">
-                  <%= equip.user.first_name %>'s <%= equip.name %>
+                  <%= equip.user.first_name %>'s <%= equip.name  %>
                 </div>
                 <div class="product-price">€ <%= equip.value %> per day</div>
 
