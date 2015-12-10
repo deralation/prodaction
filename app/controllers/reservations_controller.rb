@@ -12,6 +12,11 @@ class ReservationsController < ApplicationController
   end
 
 
+  def your_reservations
+    @equipment = current_user.equipment
+  end
+
+
   private
 
   def reservation_params

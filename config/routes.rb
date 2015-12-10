@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
 
   get "/your_bookings", to: "reservations#your_bookings"
+  get "/your_reservations", to: "reservations#your_reservations"
+
 
   get "/user/equipments/new", to: "equipments#new_fake", as: "fake_new_equipment"
 end
