@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   resources :equipments, controller: :user_equipments do
   end
 
+  resources :equipments do
+    resources :reservations, only: [:create]
+  end
+
+
   get "/user/equipments/new", to: "equipments#new_fake", as: "fake_new_equipment"
 end
