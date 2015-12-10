@@ -1,2 +1,24 @@
 <h1>Gears#show</h1>
 <p>Find me in app/views/gears/show.html.erb</p>
+
+<%= @equipment.each do |equip| %>
+<div class="product-info">
+  <%= image_tag equip.user.picture, class: "avatar user-picture" %>
+</div>
+<% end %>
+
+<div id="my-list">
+  <div id="row" >
+    <% @equipment.each do |equip| %>
+      <div class="col-md-6" >
+        <div>
+          <%= image_tag equip.picture.url(:medium) %>
+        </div>
+          <div class="product-details">
+            <%= equip.user.first_name %>'s <%= equip.name %>
+          </div>
+          <div class="product-price">€ <%= equip.value %> per day</div>
+        </div>
+      </div>
+  <% end %>
+</div>

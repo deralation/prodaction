@@ -1,0 +1,10 @@
+<%= form_for([@equipment, @equipment.reservations.new]) do |f| %>
+  <%= f.text_field :start_date %>
+  <%= f.text_field :end_date %>
+  <%= f.hidden_field :equipment_id, value: @equipment_id %>
+  <%= f.hidden_field :value, value: @equipment.value %>
+
+  <br>
+  <%= f.submit "Book now" %>
+<%end%>
+

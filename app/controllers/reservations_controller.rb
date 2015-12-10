@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = current_user.reservation.create(reservation_params)
     flash[:notice] = "Successfully booked"
+    redirect_to equipment_path
   end
 
   private
