@@ -15,6 +15,10 @@ class EquipmentsController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
+
+    @booked = Reservation.where("equipment_id = ? AND user_id = ?", @equipment_id, current_user.id).present? if current_user
+    @reviews = @equipment.reviews
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
 

@@ -17,9 +17,12 @@ Rails.application.routes.draw do
   end
 
   resources :equipments do
-    resources :reservations, only: [:create]
+    resources :reservations, only: [:create, :destroy]
   end
 
+  resources :equipments do
+    resources :reviews, only: [:create, :destroy]
+  end
 
   get "/your_bookings", to: "reservations#your_bookings"
   get "/your_reservations", to: "reservations#your_reservations"

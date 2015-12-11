@@ -7,6 +7,12 @@ class ReservationsController < ApplicationController
     redirect_to your_bookings_path
   end
 
+
+  def destroy
+    @equipment = current_user.equipment.find(params[:id])
+    @equipment.destroy
+  end
+
   def your_bookings
     @bookings = current_user.reservations
   end
