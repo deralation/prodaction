@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     equipment = @review.equipment
     @review.destroy
 
-    redirect_to equipment_path(:id)
+    root
   end
 
 

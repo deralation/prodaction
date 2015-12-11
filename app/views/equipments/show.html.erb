@@ -38,13 +38,20 @@
 
 </div>
 
-<!-- Reviews -->
-
-<h3>Reviews <%= @equipment.average_rating %> (<%= @reviews.count %>)</h3>
-<%= render 'reviews/form' if @booked && !@hasReview %>
-
-<%= render 'reviews/list' %>
-
 <div class="col-md-4">
   <%= render "reservations/form" %>
 </div>
+
+<!-- Reviews -->
+
+<h3>Reviews <%= @equipment.average_rating %> (<%= @reviews.count %>)</h3>
+
+<div class="col-md-4">
+  <%= render 'reviews/form' if @booked && !@hasReview %>
+</div>
+
+<div class="col-md-4">
+  <%= render 'reviews/list' %>
+</div>
+
+
