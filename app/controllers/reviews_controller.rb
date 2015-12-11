@@ -1,4 +1,4 @@
-def ReviewsController < ApplicationController
+class ReviewsController < ApplicationController
   def create
     @review = Review.find(params[:id])
     redirect_to @review.equipment
