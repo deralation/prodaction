@@ -1,6 +1,41 @@
 <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
 <p>
-  <%= text_field_tag :search, params[:search], class: "searchForm", placeholder: "What are you looking for?"%>
+  <%= text_field_tag :search, params[:search], class: "searchForm", id: "search_name", placeholder: "What are you looking for?"%>
   <%= submit_tag "Search", :name => nil %>
 </p>
 <% end %>
+  <script>
+  $(function() {
+    function log( message ) {
+      $( "<div>" ).text( message ).prependTo( "#log" );
+      $( "#log" ).scrollTop( 0 );
+    }
+
+    $( "#search_name" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "equipments",
+          dataType: "jsonp",
+          data: {
+            q: request.term
+          },
+          success: function( data ) {
+            response( data );
+          }
+        });
+      },
+      minLength: 3,
+      select: function( event, ui ) {
+        log( ui.item ?
+          "Selected: " + ui.item.label :
+          "Nothing selected, input was " + this.value);
+      },
+      open: function() {
+        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+      },
+      close: function() {
+        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+      }
+    });
+  });
+  </script>

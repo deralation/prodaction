@@ -24,6 +24,4 @@ class Equipment < ActiveRecord::Base
   def average_rating
     reviews.count == 0 ? 0 : reviews.average(:rating).round(2)
   end
-
-
 end
