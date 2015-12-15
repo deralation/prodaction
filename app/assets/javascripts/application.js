@@ -1,12 +1,12 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
 //= require slider
-//= require_tree.
-
-
+//= require_tree .
 
 
 

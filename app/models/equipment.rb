@@ -1,5 +1,7 @@
 class Equipment < ActiveRecord::Base
   belongs_to :user
+  has_many :reservations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 50}
   validates :description, presence: true, length: {maximum: 500}
@@ -19,4 +21,7 @@ class Equipment < ActiveRecord::Base
     where('"equipment"."name" LIKE ?', search)
   end
 
+  def average_rating
+    reviews.count == 0 ? 0 : reviews.average(:rating).round(2)
+  end
 end

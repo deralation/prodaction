@@ -1,3 +1,4 @@
+
 <body class="gear_show">
 
   <div class="container">
@@ -81,3 +82,62 @@
 
 
 </body>
+
+<h1>Gears#show</h1>
+<p>Find me in app/views/gears/show.html.erb</p>
+
+
+
+<div id="my-list">
+  <div id="row" >
+
+    <div class="product-info">
+      <%= image_tag @equipment.user.picture, class: "avatar user-picture" %>
+    </div>
+    <div class="product-details">
+      <%= @equipment.user.first_name %>
+    </div>
+    <div class="product-details">
+      <% @equipment.user.description %>
+    </div>
+    <div class="product-details">
+      <%= @equipment.user.occupation %>
+    </div>
+
+  </div>
+</div>
+
+<div id="my-list">
+  <div id="row" >
+
+      <div class="col-md-6" >
+        <div>
+          <%= image_tag @equipment.picture.url(:medium) %>
+        </div>
+          <div class="product-details">
+            <%= @equipment.user.first_name %>'s <%= @equipment.name %>
+          </div>
+          <div class="product-price">€ <%= @equipment.value %> per day</div>
+        </div>
+      </div>
+
+</div>
+
+<div class="col-md-4">
+  <%= render "reservations/form" %>
+</div>
+
+<!-- Reviews -->
+
+<h3>Reviews <%= @equipment.average_rating %> (<%= @reviews.count %>)</h3>
+
+<div class="col-md-4">
+  <%= render 'reviews/form' if @booked && !@hasReview %>
+</div>
+
+<div class="col-md-4">
+  <%= render 'reviews/list' %>
+</div>
+
+
+
