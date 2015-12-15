@@ -21,7 +21,8 @@ gem 'paperclip'
 gem 'geocoder'
 gem 'coffee-rails'
 gem 'gmaps4rails'
-gem 'ransack'
+gem 'rails4-autocomplete'
+gem "jquery-ui-rails"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
