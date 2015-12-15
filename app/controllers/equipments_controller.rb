@@ -1,11 +1,21 @@
 class EquipmentsController < ApplicationController
+  autocomplete :equipment, :name
 
   def index
     # @equipment = Equipment.where('name LIKE ?', "%#{search}%")
-    if params[:search]
-      @equipments = Equipment.search(params[:search]).order("created_at DESC")
+    if params[:name] || params[:equipment][:name]
+      equipment = params[:name] || params[:equipment][:name]
+      @equipments = Equipment.search(equipment).order("created_at DESC")
+      respond_to do |format|
+        format.html
+        format.json {render json: @equipments}
+      end
     else
       @equipments = Equipment.all.order('created_at DESC')
+      respond_to do |format|
+        format.html
+        format.json {render json: @equipments}
+      end
     end
     @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
       markers.lat equipments.latitude if equipments.latitude

@@ -1,9 +1,49 @@
-<%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
+<%= form_for Equipment.new, url: equipments_path, :method => 'get', id: "search-form" do |f| %>
 <p>
-  <%= text_field_tag :search, params[:search], class: "searchForm", placeholder: "What are you looking for?"%>
-  <%= submit_tag "Search", :name => nil %>
+  <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path %>
+  <%= f.submit "Search", :name => nil %>
 </p>
 <% end %>
 
+<script type="text/javascript" charset="utf-8">
+  $('#search').bind('railsAutocomplete.select', function(event, data){
+    $('#search-form').submit()
+  });
+</script>
 
 
+  <script>
+  /*$(function() {
+    function log( message ) {
+      $( "<div>" ).text( message ).prependTo( "#log" );
+      $( "#log" ).scrollTop( 0 );
+    }
+
+    $( "#search_name" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "equipments",
+          dataType: "jsonp",
+          data: {
+            q: request.term
+          },
+          success: function( data ) {
+            response( data );
+          }
+        });
+      },
+      minLength: 3,
+      select: function( event, ui ) {
+        log( ui.item ?
+          "Selected: " + ui.item.label :
+          "Nothing selected, input was " + this.value);
+      },
+      open: function() {
+        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+      },
+      close: function() {
+        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+      }
+    });
+  });*/
+  </script>
