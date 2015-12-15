@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShareGear</title>
+    <title>Gearo</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,28 +13,20 @@
   </head>
   <body>
     <!-- Notify your password is validated -->
-
     <% #render 'shared/navbar' %>
-
-<%
-if current_page?('/')
- navClassName = "navbar-default"
-else
-  navClassName = "navbar-inverse"
-end
-%>
-
-
-
+      <%
+      if current_page?('/')
+       navClassName = "navbar-default"
+      else
+        navClassName = "navbar-inverse"
+      end
+      %>
     <%= render :partial => 'shared/navbar', :locals => { :test =>  navClassName } %>
-
-
     <%= render 'shared/messages' %>
 
-    <%= yield %>
+      <%= yield %>
+      <%= yield(:after_js) %>
 
-
-    <%= yield(:after_js) %>
   </body>
 </html>
 
