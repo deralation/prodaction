@@ -1,0 +1,27 @@
+/* header map section */
+/* ---------------------------------------- */
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: $blue;
+}
+.map-section #map_canvas {
+  width: 100%;
+  height: 100%;
+}
+.map-section #map_canvas .gm-style img {
+  max-width: none;
+}
+.map-section #map_canvas .gm-style img label {
+  display: inline;
+  width: auto;
+}
+.map-section #map_canvas .gmnoprint {
+  display: none;
+}
+@media (max-width: 768px) {
+  .map-section {
+    height: 300px;
+  }
+}
