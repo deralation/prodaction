@@ -1,4 +1,4 @@
-<%= form_for Equipment.new, url: equipments_path, :method => 'get', id: "search-form" do |f| %>
+<%= form_for Equipment.new, url: equipments_path, :method => 'get', id: "searchForm" do |f| %>
 <p>
   <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path %>
   <%= f.submit "Search", :name => nil %>
