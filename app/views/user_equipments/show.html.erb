@@ -1,25 +1,49 @@
 <div class="container">
+  <div class="row"><h1 class="text-center"></h1>
+    <p class="text-center">Thanks for your listing</p>
+  </div>
   <div class="row">
-    <div class="col-xs-12 col-sm-4 text-center">
-
-      <ul>
-        <% current_user.equipment.each do |e| %>
-        <% if e == current_user.equipment.last %>
-        <li>
-        <%= image_tag e.picture.url(:medium) %>
-        </li>
-        <li>
-        <%= e.name %>
-        </li>
-        <li>
-        <%= e.value %>
-        </li>
-        <li>
-        <%= e.description %>
-        </li>
-        <%end%>
-      <%end%>
-
+    <% current_user.equipment.each do |e| %>
+    <% if e == current_user.equipment.last %>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default coupon">
+          <div class="panel-heading" id="head">
+            <div class="panel-title" id="title">
+                <span class="hidden-xs"><% e.name %></span>
+                <span class="visible-xs"><%= e.name %></span>
+            </div>
+            </div>
+              <div class="panel-body">
+                <%= image_tag e.picture.url(:medium), class: "coupon-img img-rounded" %>
+              <div class="col-md-9">
+                <ul class="disclosure">
+                  <p><%= e.description %></p>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <div class="offer">
+                  <span class="glyphicon glyphicon-euro"><sup></sup></span>
+                  <span class="number"><%= e.value %></span>
+                </div>
+              </div>
+              </div>
+              <div class="panel-footer">
+                <div class="coupon-code">
+                  <span class="btn btn-link">
+                    <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
+                  </span>
+                  <span class="btn btn-link">
+                    <%= link_to user_equipments_path(current_user) do %>
+                      </i>  <%= t ".profile", default: "My Gears" %>
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+          <div class="exp"></div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
