@@ -8,10 +8,7 @@
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default coupon">
           <div class="panel-heading" id="head">
-            <div class="panel-title" id="title">
-                <span class="hidden-xs"><% e.name %></span>
-                <span class="visible-xs"><%= e.name %></span>
-            </div>
+              <%= e.name %>
             </div>
               <div class="panel-body">
                 <%= image_tag e.picture.url(:medium), class: "coupon-img img-rounded" %>
