@@ -6,6 +6,10 @@ class EquipmentsController < ApplicationController
     if params[:name] || params[:equipment][:name]
       equipment = params[:name] || params[:equipment][:name]
       @equipments = Equipment.search(equipment).order("created_at DESC")
+      @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
+        markers.lat equipments.latitude if equipments.latitude
+        markers.lng equipments.longitude if equipments.longitude
+      end
       respond_to do |format|
         format.html
         format.json {render json: @equipments}
@@ -16,10 +20,6 @@ class EquipmentsController < ApplicationController
         format.html
         format.json {render json: @equipments}
       end
-    end
-    @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
-      markers.lat equipments.latitude if equipments.latitude
-      markers.lng equipments.longitude if equipments.longitude
     end
   end
 

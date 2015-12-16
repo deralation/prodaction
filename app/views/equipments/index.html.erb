@@ -11,7 +11,6 @@
            </div>
          </div>  <!-- /.row -->
          </div>
-
         <!--  <div class="row grid">
 
            <% @equipments.each do |equip| %>
@@ -206,7 +205,7 @@
                   <div class="btn-group">
                       <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
                       </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                          class="glyphicon glyphicon-th"></span>Grid</a><a href="#" id="grid" class="btn btn-default btn-sm"><span
+                          class="glyphicon glyphicon-th"></span>Grid</a><a href="#map" id="grid" class="btn btn-default btn-sm"><span
                           class="glyphicon glyphicon-map-marker"></span>Map</a>
                   </div>
 
@@ -312,24 +311,22 @@
     <div class="row">
        <div class="col-sm-12 map">
 
-              <div id="map">
-                <script>
-                    <% content_for(:after_js) do %>
-                      <%= javascript_tag do %>
-                        $(document).on('ready', function() {
-                        console.log(<%= raw @markers.to_json %>);
-                          handler = Gmaps.build('Google');
-                          handler.buildMap({ internal: { id: 'map' } }, function(){
+              <div id="map"></div>
+               <script>
+                   <% content_for(:after_js) do %>
+                     <%= javascript_tag do %>
+                       $(document).on('ready', function() {
+                         handler = Gmaps.build('Google');
+                         handler.buildMap({ internal: { id: 'map' } }, function(){
 
-                            markers = handler.addMarkers(<%= raw @markers.to_json %>);
-                            handler.bounds.extendWith(markers);
-                            handler.fitMapToBounds();
-                          });
-                        })
-                      <% end %>
-                    <% end %>
-                  </script>
-               </div>
+                           markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                           handler.bounds.extendWith(markers);
+                           handler.fitMapToBounds();
+                         });
+                       })
+                     <% end %>
+                   <% end %>
+                 </script>
 
        </div> <!-- /.map -->
      </div> <!-- /.row -->
