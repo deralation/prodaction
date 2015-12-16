@@ -212,3 +212,15 @@ footer {
       font-size: 12px;
     }
 }
+
+.list-group-item {
+    height:auto;
+    min-height:220px;
+}
+.list-group-item.active small {
+    color:#fff;
+}
+
+.list {
+  list-style: none;
+}

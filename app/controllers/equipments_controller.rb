@@ -25,6 +25,7 @@ class EquipmentsController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
+    @reservation = @equipment.reservations.new
 
     @booked = Reservation.where("equipment_id = ? AND user_id = ?", @equipment_id, current_user.id).present? if current_user
     @reviews = @equipment.reviews

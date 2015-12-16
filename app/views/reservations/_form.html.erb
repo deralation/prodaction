@@ -1,10 +1,42 @@
-<%= form_for([@equipment, @equipment.reservations.new]) do |f| %>
+<%= form_for([@equipment, @reservation]) do |f| %>
+
+  <% if @reservation.errors.any? %>
+    <ul>
+      <% @reservation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= f.date_field :start_date %>
   <%= f.date_field :end_date %>
   <%= f.hidden_field :equipment_id  %>
 
 
   <br>
-  <%= f.submit "Book now" %>
+  <%= f.submit "Book now", id: 'book_btn' %>
 <%end%>
+
+<script type="text/javascript">
+  $(function(){
+    $('#reservation_end_date').on('change',function(){
+      var startDate = new Date($('#reservation_start_date').val());
+      var endDate = new Date($('#reservation_end_date').val());
+
+      if (startDate < endDate){
+        $('#error').remove();
+        $('#reservation_start_date').addClass('has-success').removeClass('has-error');
+        $('#reservation_end_date').addClass('has-success').removeClass('has-error');
+      }
+      else{
+        $("#book_btn").toggleClass("hidden");
+        $('#new_reservation').after("<p id='error'>Choose correct date</p>");
+        $('#reservation_start_date').addClass('has-error').removeClass('has-success');
+        $('#reservation_end_date').addClass('has-error').removeClass('has-success');
+      }
+      // Do something
+
+    })
+  })
+</script>
 
