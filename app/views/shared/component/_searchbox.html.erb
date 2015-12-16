@@ -1,9 +1,14 @@
-<%= form_for Equipment.new, url: equipments_path, :method => 'get', id: "searchForm" do |f| %>
-<p>
-  <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path %>
-  <%= f.submit "Search", :name => nil %>
-</p>
-<% end %>
+<div id="home-search-box">
+
+      <%= form_for Equipment.new, url: equipments_path, :method => 'get', id: "searchForm" do |f| %>
+
+      <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path, :placeholder => "What are you looking for? e.g. Canon 5D Mark III" %>
+      <%= f.submit "Search", :name => nil, :class => "home_search_btn" %>
+
+    <% end %>
+</div>
+
+
 
 <script type="text/javascript" charset="utf-8">
   $('#search').bind('railsAutocomplete.select', function(event, data){
