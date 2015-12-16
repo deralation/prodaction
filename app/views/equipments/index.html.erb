@@ -1,308 +1,241 @@
-<body class = "listing">
-
+<div class="listing">
 
 <div class="container">
 
-     <div class="row">
-    <!--    <div class="col-sm-12 content">
-         <div class="row filters">
-           <div class="col-sm-12">
+  <div class="row">
 
-           </div>
-         </div>  <!-- /.row -->
-         </div>
+    <div class="col-md-3">
 
-        <!--  <div class="row grid">
+      <div class="row">
 
-           <% @equipments.each do |equip| %>
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                      <div class="card">
-                      <div class="thumbnail">
-                        <%= image_tag equip.picture.url(:medium), class: "img-responsive"%>
-                      </div>
-                        <div class="caption">
-                          <div><%= image_tag equip.user.picture, class: "avatar user-picture" %></div>
-
-                          <div class="pull-right">€ <%= equip.value %> per day</div>
-                          <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                          </div>
-                        </div>
-
-                    </div>
+        <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
+        <div class="col-sm-12 col-md-12">
+          <%= text_field_tag :search, params[:search], style: "color: black" %>
+          <%= submit_tag "Search", :name => nil %>
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <%= date_field :start_date, placeholder: "From", class: "form-control" %>
+              </div>
+              <div class="col-sm-12 col-md-12">
+                <%= date_field :end_date, placeholder: "Until", class: "form-control" %>
+              </div>
             </div>
-            <% end %>
-        </div>
+            <hr>
 
-<<<<<<< HEAD
-
-
-           <div class="col-sm-6 col-md-4">
-             <div class="card"></div>
-
-           </div>
-
-
-
-           </div>
-           <div class="col-sm-6 col-md-4">
-             <div class="card"></div>
-           </div>
-           <div class="col-sm-6 col-md-4">
-             <div class="card"></div>
-           </div>
-         </div> <!-- /.row -->
-       </div> <!-- /.content -->
-     </div><!-- /.row -->
-
-
-
-
-<div class="container">
-
-        <div class="row">
-
-            <div class="col-md-3">
 
             <div class="row">
-
-   <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
-   <div class="col-sm-12 col-md-12">
-        <%= text_field_tag :search, params[:search], style: "color: black" %>
-        <%= submit_tag "Search", :name => nil %>
-          <div class="row">
-            <div class="col-sm-12 col-md-12">
-              <%= date_field :start_date, placeholder: "From", class: "form-control" %>
-            </div>
-            <div class="col-sm-12 col-md-12">
-              <%= date_field :end_date, placeholder: "Until", class: "form-control" %>
-            </div>
-          </div>
-          <hr>
-
-
-          <div class="row">
-              <div class= "col-sm-12">
-              <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Used, Like New
-              </div>
-
-              <div class= "col-sm-12">
-              <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Very Good
-              </div>
-
-            <div class= "col-sm-12">
-              <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Good
-              </div>
-
-              <div class= "col-sm-12">
-              <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Acceptable
-              </div>
-
-          </div>
-
-          <hr>
-   </div>
-   <% end %>
-
-
-</div>
-
-                <div class="list-group">
-
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="icon-audio"></span>  Audio</a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <a href="#">AUDIO PACKAGES (40)</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#">BOOM/SHOTGUN (35)</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#">MICROPHONES (41)</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#">MIXER (15)</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-        </div>
-            <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="icon-video"></span>  Video</a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Change Password</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Import/Export</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
-                                            Delete Account</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                <div class= "col-sm-12">
+                <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Used, Like New
                 </div>
 
+                <div class= "col-sm-12">
+                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Very Good
+                </div>
 
+              <div class= "col-sm-12">
+                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Good
+                </div>
 
+                <div class= "col-sm-12">
+                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Acceptable
+                </div>
 
+            </div>
+
+            <hr>
+        </div>
+        <% end %>
 
       </div>
 
-
-
-
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
-            </div>
-
-            <div class="col-md-9">
-
-
-
-                  <div class="btn-group">
-                      <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-                      </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                          class="glyphicon glyphicon-th"></span>Grid</a><a href="#" id="grid" class="btn btn-default btn-sm"><span
-                          class="glyphicon glyphicon-map-marker"></span>Map</a>
+      <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="icon-audio"></span>  Audio</a>
+                  </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                      <table class="table">
+                          <tr>
+                              <td>
+                                  <a href="#">AUDIO PACKAGES (40)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">BOOM/SHOTGUN (35)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">MICROPHONES (41)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">MIXER (15)</a>
+                              </td>
+                          </tr>
+                      </table>
                   </div>
+              </div>
+          </div>
+
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="icon-video"></span>  Video</a>
+                  </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="panel-body">
+                      <table class="table">
+                          <tr>
+                              <td>
+                                  <a href="http://www.jquery2dotnet.com">Change Password</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="http://www.jquery2dotnet.com">Import/Export</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
+                                      Delete Account</a>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="list-group">
+          <a href="#" class="list-group-item">Category 2</a>
+          <a href="#" class="list-group-item">Category 3</a>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+
+      <div class="btn-group">
+        <a href="#" id="list" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-th-list"></span>
+          List
+        </a>
+        <a href="#" id="grid" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-th"></span>
+          Grid
+        </a>
+        <a href="#map" id="btn-map" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-map-marker"></span>
+          Map
+        </a>
+      </div>
 
 
+      <div id="content-wrapper">
+        <div class="row carousel-holder">
 
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                  <%= image_tag "slider-1-800x300.jpg", class: "slide-image"%>
-                                    <!-- <img class="slide-image" src="http://placehold.it/800x300" alt=""> -->
-                                </div>
-                                <div class="item">
-                                  <%= image_tag "slider-2-800x300.jpg", class: "slide-image"%>
-                                    <!-- <img class="slide-image" src="http://placehold.it/800x300" alt=""> -->
-                                </div>
-                                <div class="item">
-                                  <%= image_tag "slider-3-800x300.jpg", class: "slide-image"%>
-                                   <!--  <img class="slide-image" src="http://placehold.it/800x300" alt=""> -->
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
+            <div class="col-md-12">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                          <%= image_tag "slider-1-800x300.jpg", class: "slide-image"%>
+                            <!-- <img class="slide-image" src="http://placehold.it/800x300" alt=""> -->
+                        </div>
+                        <div class="item">
+                          <%= image_tag "slider-2-800x300.jpg", class: "slide-image"%>
+                            <!-- <img class="slide-image" src="http://placehold.it/800x300" alt=""> -->
+                        </div>
+                        <div class="item">
+                          <%= image_tag "slider-3-800x300.jpg", class: "slide-image"%>
+                           <!--  <img class="slide-image" src="http://placehold.it/800x300" alt=""> -->
                         </div>
                     </div>
-
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
                 </div>
+            </div>
 
-                <div class="row">
+        </div>
 
-                    <% @equipments.each do |equip| %>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="row">
 
-                        <div class="thumbnail img">
+            <% @equipments.each do |equip| %>
+            <div class="col-sm-4 col-lg-4 col-md-4">
 
-                            <%= image_tag equip.picture.url(:medium), class: "img-responsive"%>
-                            <div class="caption">
+                <div class="thumbnail img">
 
-
-                            <div class="price-container">
-                              <span class="price">€ <%= equip.value %></span>
-                              <span class="quantity">/day</span>
-                            </div>
+                    <%= image_tag equip.picture.url(:medium), class: "img-responsive"%>
+                    <div class="caption">
 
 
-
-                                <div id = "list-info">
-                                <div class="img"><%= image_tag equip.user.picture, class: "avatar-list" %></div>
-                                <div class="text-user">
-                                <span><%= equip.user.first_name %>'s</span>
-                                 </div>
-                                 <div class="text-equip">
-                               <h4><a href="<%= equipment_path(equip)%>"><%= equip.name %></a></h4>
-                                </div>
-
-                                </div>
+                    <div class="price-container">
+                      <span class="price">€ <%= equip.value %></span>
+                      <span class="quantity">/day</span>
+                    </div>
 
 
 
-
-                                <div class="ratings">
-                                <div class="pull-right">15 reviews</div>
-                                <div>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </div>
-                                </div>
-
-                            </div>
+                        <div id = "list-info">
+                        <div class="img"><%= image_tag equip.user.picture, class: "avatar-list" %></div>
+                        <div class="text-user">
+                        <span><%= equip.user.first_name %>'s</span>
                          </div>
+                         <div class="text-equip">
+                       <h4><a href="<%= equipment_path(equip)%>"><%= equip.name %></a></h4>
+                        </div>
 
-                         <h4>
+                        </div>
 
 
 
+
+                        <div class="ratings">
+                        <div class="pull-right">15 reviews</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
+                        </div>
 
                     </div>
-                    <% end %>
-
                  </div>
 
+                 <h4>
+
+
+
+
             </div>
+            <% end %>
+
+        </div>
+      </div>
+
+    </div>
 
         </div>
 
@@ -310,26 +243,36 @@
     <!-- /.container -->
 
     <div class="row">
-       <div class="col-sm-12 map">
+       <div class="col-sm-12">
 
-              <div id="map">
-                <script>
-                    <% content_for(:after_js) do %>
-                      <%= javascript_tag do %>
-                        $(document).on('ready', function() {
-                        console.log(<%= raw @markers.to_json %>);
-                          handler = Gmaps.build('Google');
-                          handler.buildMap({ internal: { id: 'map' } }, function(){
+              <div id="map" class="hidden"></div>
 
-                            markers = handler.addMarkers(<%= raw @markers.to_json %>);
-                            handler.bounds.extendWith(markers);
-                            handler.fitMapToBounds();
-                          });
-                        })
-                      <% end %>
-                    <% end %>
-                  </script>
-               </div>
+               <script>
+                   <% content_for(:after_js) do %>
+                     <%= javascript_tag do %>
+                       $(document).on('ready', function() {
+
+
+                         $("#btn-map").on("click", function(){
+
+                          $("#map").toggleClass("hidden");
+                          $("#content-wrapper").toggleClass("hidden");
+
+                            handler = Gmaps.build('Google');
+                            handler.buildMap({ internal: { id: 'map' } }, function(){
+
+                             markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                             handler.bounds.extendWith(markers);
+                             handler.fitMapToBounds();
+                           });
+
+                         })
+
+
+                       })
+                     <% end %>
+                   <% end %>
+                 </script>
 
        </div> <!-- /.map -->
      </div> <!-- /.row -->
@@ -338,42 +281,10 @@
 
 
 
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-<!-- The map -->
-
-<!-- <div id="wrapper-map">
-  <div id="map">
-        <% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-            $(document).on('ready', function() {
-            console.log(<%= raw @markers.to_json %>);
-              handler = Gmaps.build('Google');
-              handler.buildMap({ internal: { id: 'map' } }, function(){
-
-                markers = handler.addMarkers(<%= raw @markers.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
-              });
-            })
-          <% end %>
-        <% end %>
-   </div>
-</div> -->
 
 </div>
-
-
-</body>
 
 
 

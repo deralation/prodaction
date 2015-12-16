@@ -6,6 +6,10 @@ class EquipmentsController < ApplicationController
     if params[:name] || params[:equipment][:name]
       equipment = params[:name] || params[:equipment][:name]
       @equipments = Equipment.search(equipment).order("created_at DESC")
+      @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
+        markers.lat equipments.latitude if equipments.latitude
+        markers.lng equipments.longitude if equipments.longitude
+      end
       respond_to do |format|
         format.html
         format.json {render json: @equipments}
@@ -17,14 +21,11 @@ class EquipmentsController < ApplicationController
         format.json {render json: @equipments}
       end
     end
-    @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
-      markers.lat equipments.latitude if equipments.latitude
-      markers.lng equipments.longitude if equipments.longitude
-    end
   end
 
   def show
     @equipment = Equipment.find(params[:id])
+    @reservation = @equipment.reservations.new
 
     @booked = Reservation.where("equipment_id = ? AND user_id = ?", @equipment_id, current_user.id).present? if current_user
     @reviews = @equipment.reviews

@@ -685,7 +685,7 @@
 <h3>Reviews <%= @equipment.average_rating %> (<%= @reviews.count %>)</h3>
 
 <div class="col-md-4">
-  <%= render 'reviews/form' if @booked && !@hasReview %>
+  <%= render 'reviews/form' if !@hasReview %>
 </div>
 
 <div class="col-md-4">

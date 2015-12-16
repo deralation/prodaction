@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   def create
-    @review = Review.find(params[:id])
+    @review = Review.create({
+      equipment_id: params[:equipment_id],
+      user_id: params[:review][:user_id],
+      comment: params[:review][:comment],
+      rate: params[:review][:rate]
+      })
     redirect_to @review.equipment
   end
 

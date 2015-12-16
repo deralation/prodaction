@@ -9,7 +9,7 @@ class Equipment < ActiveRecord::Base
 
 
   has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
+    styles: { big: "600x400>", medium: "300x300>", thumb: "100x100>" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
@@ -22,6 +22,6 @@ class Equipment < ActiveRecord::Base
   end
 
   def average_rating
-    reviews.count == 0 ? 0 : reviews.average(:rating).round(2)
+    reviews.count > 1 ? reviews.average(:rate).round(2) : 0
   end
 end
