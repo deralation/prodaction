@@ -1,6 +1,8 @@
 <%= form_for([@equipment, @equipment.reviews.new]) do |f| %>
+
   <%= f.number_field :rate %>
   <%= f.text_field :comment %>
 
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit "Comment" %>
 <% end %>
