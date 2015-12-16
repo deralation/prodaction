@@ -1,12 +1,44 @@
-#searchForm {
-    position: relative;
-    width: 400px;
-    margin: 0 auto;
-    padding: 0 15px 10px;
-    background-color: #fff;
-    color: black;
+#equipment_name {
+  font-size: 1.2em;
+   margin-top: 40px;
+   color: $blue;
+   height: 45px;
+   width: 550px;
 }
 
+.ui-autocomplete-input {
+  width: 400px;
+
+}
+
+.ui-autocomplete  {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ui-autocomplete li {
+  color: $blue;
+  background-color: white;
+  padding:10px;
+  width: 600px;
+}
+
+.ui-autocomplete li a:hover{
+  color: white;
+  background-color: $blue;
+  padding:10px;
+  width: 600px;
+}
+
+.home_search_btn {
+    font-size: 1.2em;
+    margin-left: 20px;
+   width: 120px;
+   height: 45px;
+  color: white;
+  background-color: $blue;
+
+}
 
 // modify bootstrap button
 

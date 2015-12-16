@@ -4,12 +4,15 @@
 }
 
 .navbar-fixed-top {
-  background-color: white;
   border-color: transparent;
   transition: all 0.3s linear;
 }
 
-.navbar-default.scrolled {
+.is-home .navbar-default {
+   background-color: transparent;
+}
+
+.is-home .navbar-default.scrolled {
   // background-color: #f8f8f8;
   background-color: #2E2E2E;
   border-color: #2E2E2E;
@@ -20,3 +23,30 @@
     color: #777;
   }
 }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: $blue;
+  background-color: transparent;
+}
+
+
+body.is-home {
+  padding-top: 0;
+}
+
+.is-home .navbar-fixed-top a:hover {
+  color:red;
+}
+.is-page .navbar-fixed-top a {
+color:blue;
+}
+
+.navbar {
+  height: 60px;
+}
+
+.navbar-right {
+    margin-top: 5px;
+    float: right !important;
+    margin-right: -15px;
+  }

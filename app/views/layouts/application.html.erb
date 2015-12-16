@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Gearo</title>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,22 +13,29 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
   </head>
-  <body>
+
+
+
+  <body class="<%= current_page?('/') ? "is-home" : "is-page" %>">
     <!-- Notify your password is validated -->
     <% #render 'shared/navbar' %>
-      <%
+
+    <%
       if current_page?('/')
        navClassName = "navbar-default"
       else
         navClassName = "navbar-inverse"
       end
       %>
+
     <%= render :partial => 'shared/navbar', :locals => { :test =>  navClassName } %>
     <%= render 'shared/messages' %>
 
       <%= yield %>
       <%= yield(:after_js) %>
+     <%= render 'shared/footer' %>
   </body>
 </html>
 
