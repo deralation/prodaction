@@ -48,6 +48,8 @@
 // modify bootstrap button
 
 .btn {
+    background-color: $blue;
+    color: white;
     padding: 14px 24px;
     border: 1px solid $blue;
     letter-spacing: 1px;
@@ -59,14 +61,10 @@
 }
 
 .btn-primary {
-    background: #0099cc;
+    background: $blue;
     color: #ffffff;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
-    border: 1px solid $blue;
-}
 
 .btn-primary:active, .btn-primary.active {
     background: #007299;

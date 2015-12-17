@@ -8,8 +8,13 @@
           <div class="panel-heading" id="head">
               <%= current_user.equipment.last.name %>
             </div>
+
+              <div class="panel-body">
+                <%= image_tag e.picture.url(:medium), class: "coupon-img img-rounded" %>
+
               <div class="panel-body">
                 <%= image_tag current_user.equipment.last.picture.url(:medium), class: "coupon-img img-rounded" %>
+
               <div class="col-md-9">
                 <ul class="disclosure">
                   <p><%= current_user.equipment.last.description %></p>
@@ -17,23 +22,26 @@
               </div>
               <div class="col-md-3">
                 <div class="offer">
+
                   <span class="glyphicon glyphicon-euro"><sup></sup></span>
                   <span class="number"><%= current_user.equipment.last.value %></span>
+
                 </div>
               </div>
-              </div>
-              <div class="panel-footer">
-                <div class="coupon-code">
-                  <span class="btn btn-link">
-                    <%= link_to "Add new Gear", new_user_equipment_path(current_user)%>
-                  </span>
-                  <span class="btn btn-link">
+             <!--  </div -->
+              <!-- <div class="panel-footer"> -->
+                <div class="">
+                  <div class="btn btn-primary btn-lg">
+                    <%= link_to "Add another gear", new_user_equipment_path(current_user)%>
+                  </div>
+                  <div class="btn btn-primary btn-lg">
                     <%= link_to user_equipments_path(current_user) do %>
-                      </i>  <%= t ".profile", default: "My Gears" %>
+                      </i>  <%= t ".profile", default: "View all my gears" %>
                     <% end %>
-                  </span>
+                  </div>
                 </div>
               </div>
+           </div>
           <div class="exp"></div>
         </div>
       </div>

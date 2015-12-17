@@ -91,7 +91,51 @@
                 <div class="row row-wrap">
                     <div class="col-md-8">
                         <ul class="booking-item-reviews list">
+<<<<<<< HEAD
+
+
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="booking-item-review-person">
+                                            <a class="booking-item-review-person-avatar round" href="#">
+                                                <img src="img/70x70.png" alt="Image Alternative text" title="Good job" />
+                                            </a>
+                                            <p class="booking-item-review-person-name"><a href="#">Joe Smith</a>
+                                            </p>
+                                            <p class="booking-item-review-person-loc">Palm Beach, FL</p><small><a href="#">141 Reviews</a></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="booking-item-review-content">
+
+                                            <hr>
+                                            <ul class="list-inline">
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                            </ul>
+                                            <p>Luca's a Pro! I will be a returning customer for sure!
+
+                                               Thanks!!
+                                            </p>
+                                            <hr>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+=======
                           <% @reviews.order("id desc").each do |review| %>
+>>>>>>> 930efc6c6e5123f8e3b2b53f449f3e94fc5d6dfc
                             <li>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -104,6 +148,9 @@
                                             <p class="booking-item-review-person-loc"><%= review.user.address %></p><small><a href="#"><%= pluralize review.user.reviews.count, 'Review' %> </a></small>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+
+=======
                                     <div class="col-md-10">
                                         <div class="booking-item-review-content">
 
@@ -127,6 +174,7 @@
 
                                         </div>
                                     </div>
+>>>>>>> 930efc6c6e5123f8e3b2b53f449f3e94fc5d6dfc
                                 </div>
                             </li>
                             <% end %>
@@ -150,11 +198,12 @@
                                         <div class="form-group">
                                             <label>Review Text</label>
                                             <%= f.text_area :comment, class: 'form-control', rows: 6 %>
-                                        </div>
+
                                         <%= f.submit "Leave a Review", class: 'btn btn-primary' %>
                                     </div>
                                 </div>
                               <% end %>
+
                         </div>
                         <% end %>
                     </div>
@@ -302,6 +351,10 @@
         </div>
 
 
+
+    </div>
+
+
     </div>
 
 </div>
@@ -323,6 +376,8 @@
         <% end %>
 
 
+</div>
+
 
 
 
@@ -334,5 +389,9 @@
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 930efc6c6e5123f8e3b2b53f449f3e94fc5d6dfc
 
 

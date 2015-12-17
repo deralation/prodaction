@@ -7,12 +7,20 @@
 
 }
 
-.show-price {
+.price h4 {
+  margin-top: 30px;
+  float: right;
+}
 
-  font-size: 2em;
+
+.perday {
+  margin-top: 30px;
+  font-size: 4em;
 
 }
 
-.perday {
-
+.Profile #Meet a {
+  border: 1.5px solid $blue;
+  background-color: white;
+  color: $blue;
 }

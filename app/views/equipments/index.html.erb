@@ -1,5 +1,3 @@
-<div class="listing">
-
 <div class="container">
 
   <div class="row">
@@ -13,6 +11,7 @@
           <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path, id: "index_autocomplete"%>
           <%= f.submit "Search", :name => nil %>
             <div class="row">
+              <label for="From"></label>
               <div class="col-sm-12 col-md-12">
                 <%= date_field :start_date, placeholder: "From", class: "form-control" %>
               </div>
@@ -25,19 +24,19 @@
 
             <div class="row">
                 <div class= "col-sm-12">
-                <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Used, Like New
+                <%= check_box_tag "q[equip_type_eq_any][]", "Video" %> Like New
                 </div>
 
                 <div class= "col-sm-12">
-                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Very Good
+                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Very Good
                 </div>
 
               <div class= "col-sm-12">
-                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Good
+                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Good
                 </div>
 
                 <div class= "col-sm-12">
-                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Used, Acceptable
+                <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Acceptable
                 </div>
 
             </div>
@@ -94,36 +93,150 @@
                       <table class="table">
                           <tr>
                               <td>
-                                  <a href="http://www.jquery2dotnet.com">Change Password</a>
+                                  <a href="#">ARRI (32)</a>
                               </td>
                           </tr>
                           <tr>
                               <td>
-                                  <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
+                                  <a href="#">BLACKMAGIC(55)</a>
                               </td>
                           </tr>
                           <tr>
                               <td>
-                                  <a href="http://www.jquery2dotnet.com">Import/Export</a>
+                                  <a href="#">CANON (130)</a>
                               </td>
                           </tr>
                           <tr>
                               <td>
-                                  <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
-                                      Delete Account</a>
+                                  <a href="#">GOPROS (35)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">PANASONIC (21)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">RED (110)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">SONY (122)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">SUPER 8MM (2)</a>
                               </td>
                           </tr>
                       </table>
                   </div>
               </div>
           </div>
+
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="icon-photo"></span>  Photo</a>
+                  </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="panel-body">
+                           <table class="table">
+                          <tr>
+                              <td>
+                                  <a href="#">CANON (162)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">NIKON(30)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">FUJI(7)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">LEICA(15)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">OLYMPUS (2)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">ZEISS(10)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">SIGMA (22)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">PENTAX (5)</a>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
+          </div>
+
+           <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="icon-other"></span>  Other</a>
+                  </h4>
+              </div>
+
+               <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="panel-body">
+                      <table class="table">
+                          <tr>
+                              <td>
+                                  <a href="#">DRONES(62)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">SPACE(10)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">ART&PROPS(89)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">GRIP(23)</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a href="#">PRODUCTION (7)</a>
+                              </td>
+                          </tr>
+
+                      </table>
+                  </div>
+              </div>
+          </div>
+
       </div>
 
-      <div class="list-group">
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-      </div>
+
     </div>
+
+
 
     <div class="col-md-9">
 
@@ -183,18 +296,15 @@
             <% @equipments.each do |equip| %>
             <div class="col-sm-4 col-lg-4 col-md-4">
 
-                <div class="thumbnail img">
+                <div class="thumbnail img position">
 
-                    <%= image_tag equip.picture.url(:medium), class: "img-responsive"%>
-                    <div class="caption">
-
-
-                    <div class="price-container">
+                   <div class="price-container">
                       <span class="price">€ <%= equip.value %></span>
                       <span class="quantity">/day</span>
                     </div>
 
-
+                    <a href="<%= equipment_path(equip)%>"><div><%= image_tag equip.picture.url(:medium), class: "img-responsive"%></div></a>
+                    <div class="caption">
 
                         <div id = "list-info">
                         <div class="img"><%= image_tag equip.user.picture, class: "avatar-list" %></div>
@@ -202,22 +312,21 @@
                         <span><%= equip.user.first_name %>'s</span>
                          </div>
                          <div class="text-equip">
-                       <h4><a href="<%= equipment_path(equip)%>"><%= equip.name %></a></h4>
+
+                          <h4><a href="<%= equipment_path(equip)%>"><%= equip.name %></a></h4>
                         </div>
 
                         </div>
-
-
 
 
                         <div class="ratings">
-                        <div class="pull-right">15 reviews</div>
+                        <div class="pull-right">15 Volts</div>
                         <div>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <i class="fa fa-bolt"></i>
+                            <i class="fa fa-bolt"></i>
+                            <i class="fa fa-bolt"></i>
+                            <i class="fa fa-bolt"></i>
+                            <i class="fa fa-bolt"></i>
                         </div>
                         </div>
 
@@ -281,10 +390,10 @@
 
 
 
-    </div>
-
-
 </div>
+
+
+
 
 
 
