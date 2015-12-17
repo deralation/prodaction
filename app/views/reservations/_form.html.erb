@@ -1,29 +1,5 @@
 
-<!--
-<%#= form_for([@equipment, @equipment.reservations.new]) do |f| %>
-<div class="col-md-6">
-   <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon"></i>
-   <label>From</label>
-      <%#= f.date_field :start_date, class: "form-control" %>
-    </div>
-</div>
-<div class="col-md-6">
-    <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon"></i>
-    <label>Till</label>
-      <%#= f.date_field :end_date, class: "form-control" %>
-    </div>
-</div>
-
-  <%#= f.hidden_field :equipment_id  %>
-
-
-<div class="col-md-12">
-  <%#= f.submit "Book Now", class: "btn btn-block btn-lg" %>
-</div>
-
- -->
-
-<%= form_for([@equipment, @reservation]) do |f| %>
+<%= form_for [@equipment, @reservation] do |f| %>
 
   <% if @reservation.errors.any? %>
     <ul>
@@ -46,7 +22,7 @@
   </div>
 </div>
 
-  <%= f.hidden_field :equipment_id  %>
+  <%= f.hidden_field :equipment_id, :value => @equipment.id %>
 
 <div class="col-md-12">
   <%= f.submit "Book Now", id: 'book_btn', class: "btn btn-primary btn-block btn-lg"  %>
