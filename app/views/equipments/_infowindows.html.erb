@@ -1,0 +1,22 @@
+
+<div class="rami">
+  <% @equipments.each do |f| %>
+  <div class="row">
+    <div class="col-xs-12 text_center">
+      <%= f.name %>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-xs-6 glyphicon glyphicon-euro text_center">
+        <%= f.value %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 text_center">
+        <%= image_tag f.picture, size: "70x70" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+

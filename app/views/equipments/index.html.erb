@@ -356,16 +356,22 @@
 
               <div id="map" class="hidden"></div>
 
+              <%= javascript_tag do %>
+                var infowindow = new google.maps.InfoWindow({content: contentString, maxWidth: 200});
+              <% end %>
+
                <script>
                    <% content_for(:after_js) do %>
                      <%= javascript_tag do %>
                        $(document).on('ready', function() {
                           console.log(<%= raw @markers.to_json %>);
 
+
                          $("#btn-map").on("click", function(){
 
                           $("#map").toggleClass("hidden");
                           $("#content-wrapper").toggleClass("hidden");
+
 
                             handler = Gmaps.build('Google');
                             handler.buildMap({ internal: { id: 'map' } }, function(){

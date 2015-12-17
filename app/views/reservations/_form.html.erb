@@ -1,3 +1,4 @@
+
 <%= form_for([@equipment, @reservation]) do |f| %>
 
   <% if @reservation.errors.any? %>
@@ -22,7 +23,7 @@
   </div>
 </div>
 
-  <%= f.hidden_field :equipment_id  %>
+  <%= f.hidden_field :equipment_id, :value => @equipment.id %>
 
 
       <div class="col-md-12">
