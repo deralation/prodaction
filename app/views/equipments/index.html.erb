@@ -356,10 +356,6 @@
 
               <div id="map" class="hidden"></div>
 
-              <%= javascript_tag do %>
-                var infowindow = new google.maps.InfoWindow({content: contentString, maxWidth: 200});
-              <% end %>
-
                <script>
                    <% content_for(:after_js) do %>
                      <%= javascript_tag do %>
