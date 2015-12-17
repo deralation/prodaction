@@ -9,6 +9,14 @@ class EquipmentsController < ApplicationController
       @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
         markers.lat equipments.latitude if equipments.latitude
         markers.lng equipments.longitude if equipments.longitude
+        markers.picture ({
+          :url => equipments.picture,
+          :width => "320",
+          :height => "320",
+          :scaledWidth => "120",
+          :scaledHeight => "120"
+          })
+        markers.title equipments.value
       end
       respond_to do |format|
         format.html

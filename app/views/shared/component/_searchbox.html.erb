@@ -2,7 +2,7 @@
 
       <%= form_for Equipment.new, url: equipments_path, :method => 'get', id: "searchForm" do |f| %>
 
-      <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path, :placeholder => "What are you looking for? e.g. Canon 5D Mark III" , id: "seach_box" %>
+      <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path, id: "landing_autocomplete" ,:placeholder => "What are you looking for? e.g. Canon 5D Mark III" %>
       <%= f.submit "Search", :name => nil, :class => "home_search_btn" %>
 
     <% end %>

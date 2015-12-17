@@ -10,8 +10,8 @@
 
         <%= form_for Equipment.new, url: equipments_path, :method => 'get' do |f| %>
         <div class="col-sm-12 col-md-12">
-          <%= text_field_tag :search, params[:search], style: "color: black" %>
-          <%= submit_tag "Search", :name => nil %>
+          <%= f.autocomplete_field :name, autocomplete_equipment_name_equipments_path, id: "index_autocomplete"%>
+          <%= f.submit "Search", :name => nil %>
             <div class="row">
               <div class="col-sm-12 col-md-12">
                 <%= date_field :start_date, placeholder: "From", class: "form-control" %>
