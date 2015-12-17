@@ -18,32 +18,29 @@
 
                       <label class="btn btn-primary btn-lg outline col-md-3">
                         <%= f.radio_button :type, "Audio" %>
-                        <span class="icon-audio"></span>
-                         <br>
+                        <h2 class="icon-audio"></h2>
                         Audio
                       </label>
 
                       <label class="btn btn-primary btn-lg outline  col-md-3">
                         <%= f.radio_button :type, "Video" %>
-                        <span class="icon-video"></span>
-                         <br>
+                        <h2 class="icon-video"></h2>
+
                         Video
                       </label>
 
                       <label class="btn btn-primary btn-lg outline col-md-3">
                         <%= f.radio_button :type, "Photo" %>
 
-                         <span class="icon-photo"></span>
-
-                         <br>
+                         <h2 class="icon-photo"></h2>
                         Photo
                       </label>
 
 
                       <label class="btn btn-primary btn-lg outline col-md-3" style='margin-bottom: 20px;'>
                         <%= f.radio_button :type, "Accessories" %>
-                        <span class="icon-other"></span>
-                         <br>
+                        <h2 class="icon-other"></h2>
+
                         Other
                       </label>
 
@@ -54,7 +51,7 @@
         <div class="row">
             <div class="form-group">
               <label>Condition</label>
-              <%= f.select :condition, [["Used, Like New","Used, Like New"], ["Used, Very Good","Used, Very Good"], ["Used, Good","Used, Good"],  ["Used, Acceptable","Used, Acceptable"]],prompt: "Select...", class: "form-control" %>
+              <%= f.select :condition, [["Like New","Like New"], ["Very Good","Very Good"], ["Good","Good"],  ["Acceptable","Acceptable"]],prompt: "Select...", class: "form-control" %>
             </div>
           </div>
 
@@ -66,12 +63,15 @@
             <%= f.text_field :name, placeholder: "Be clear and descriptive", class: "form-control" %>
           </div>
         </div>
+
         <div class="row">
           <div class="form-group">
             <label>Description</label>
-            <%= f.text_area :description, rows: 5, placeholder: "Tell about your gear", class: "form-control" %>
+            <%= f.text_area :description, rows: 5, placeholder: "Tell something about your gear", class: "form-control" %>
           </div>
         </div>
+
+
         <div class="row">
           <div class="form-group">
             <label>Address</label>
@@ -100,14 +100,14 @@
           </div>
 
           <div class="row" style='margin-bottom: 20px;'>
-            <label>Picture</label>
-              <%= f.label :picture, placeholder: 'Picture' %>
+
+              <%= f.label :picture %>
               <%= f.file_field :picture %>
           </div>
 
          <div class="row">
         <div class="actions">
-            <%= f.submit "Save", class: "btn btn-primary" %>
+            <%= f.submit "Save", class: "btn btn-primary btn-lg" %>
         </div>
       </div>
 

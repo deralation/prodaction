@@ -1,7 +1,5 @@
-
-
 .listing{
-  background-color: $light-blue;
+
  .content{
    background: grey;
    .filters{
@@ -67,21 +65,24 @@ body {
 }
 
 .caption {
-    height: 130px;
+    position: relative;
+    height: 120px;
     overflow: hidden;
 }
 
 .caption h4 {
-    white-space: nowrap;
+
+
 }
+
 
 .thumbnail img {
     width: 100%;
-    height: 180px;
+    height: 200px;
 }
 
 .thumbnail .avatar-list {
-
+    position: absolute;
     vertical-align: text-top;
     width: 50px;
     height: 50px;
@@ -90,8 +91,8 @@ body {
 
 .ratings {
 
-    font-size: 0.9em;
-    color: $blue;
+    margin-top: 80px;
+    color: rgba(255, 204, 0, 0.86);
 }
 
 .thumbnail {
@@ -182,25 +183,32 @@ footer {
 }
 
 #list-info .text-user {
-  float: left;
+  position: absolute;
+  left: 75px;
 }
 
 #list-info .text-equip {
-  float: left;
-  word-wrap: break-word;
+  position: absolute;
+  left: 75px;
+  top: 20px;
+
+}
+
+.position {
+  position: relative;
 }
 
 .price-container {
-    color: #3c3c3c;
+
     font-weight: 600;
     min-width: 3.125em;
     text-align: center;
     position: absolute;
-    top: 0;
-    right: 15px;
+    top: 0px;
+    right: 0px;
     padding: 0.3em 0.75em;
-    background-color: white;
-    background-color:  rgba(255, 255, 255, 0.74);
+    background-color: $blue;
+    background-color:  rgba(255, 255, 255, 0.82);
     -moz-border-radius-bottomleft: 0.375em;
     -webkit-border-bottom-left-radius: 0.375em;
     border-bottom-left-radius: 0.375em;

@@ -9,7 +9,7 @@ class Equipment < ActiveRecord::Base
 
 
   has_attached_file :picture,
-    styles: { big: "600x400>", medium: "300x300>", thumb: "100x100>" }
+    styles: { big: "750x500", medium: "300x300", thumb: "100x100" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
