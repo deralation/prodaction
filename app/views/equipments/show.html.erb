@@ -417,13 +417,17 @@
                             <form>
                                 <div class="row">
                                     <div class="col-md-8">
+                                      <%= @equipment.average_rating %> (<%= @reviews.count %>)
                                         <div class="form-group">
                                             <label>Review Title</label>
                                             <input class="form-control" type="text" />
                                         </div>
                                         <div class="form-group">
                                             <label>Review Text</label>
-                                            <textarea class="form-control" rows="6"></textarea>
+                                            <textarea class="form-control" rows="6"><%= render 'reviews/form' if !@hasReview %></textarea>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <%= render 'reviews/list' %>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
