@@ -1,28 +1,3 @@
-
-<!--
-<%#= form_for([@equipment, @equipment.reservations.new]) do |f| %>
-<div class="col-md-6">
-   <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon"></i>
-   <label>From</label>
-      <%#= f.date_field :start_date, class: "form-control" %>
-    </div>
-</div>
-<div class="col-md-6">
-    <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon"></i>
-    <label>Till</label>
-      <%#= f.date_field :end_date, class: "form-control" %>
-    </div>
-</div>
-
-  <%#= f.hidden_field :equipment_id  %>
-
-
-<div class="col-md-12">
-  <%#= f.submit "Book Now", class: "btn btn-block btn-lg" %>
-</div>
-
- -->
-
 <%= form_for([@equipment, @reservation]) do |f| %>
 
   <% if @reservation.errors.any? %>
@@ -40,13 +15,26 @@
   </div>
 </div>
 <div class="col-md-6">
-  <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon"></i>
+  <div class="form-group form-group-icon-left">
+    <i class="fa fa-calendar input-icon"></i>
     <label>Till</label>
     <%= f.date_field :end_date, class: "form-control" %>
   </div>
 </div>
 
   <%= f.hidden_field :equipment_id  %>
+
+
+      <div class="col-md-12">
+        <div class="form-group">
+        <label for="message">
+          Message to
+          <a href="#"><%= @equipment.user.first_name %></a>
+          <textarea class="form-control" name="message" id="message" cols="100%" rows="5"></textarea>
+        </label>
+        </div>
+      </div>
+
 
 <div class="col-md-12">
   <%= f.submit "Book Now", id: 'book_btn', class: "btn btn-primary btn-block btn-lg"  %>

@@ -55,3 +55,11 @@ color:gray;
     float: right !important;
     margin-right: -15px;
   }
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: $blue;
+}
