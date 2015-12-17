@@ -10,7 +10,7 @@
         <%= f.error_notification %>
 
 
-        <div class="form-inputs">
+        <div class="form-group">
           <%= f.input :email, required: true, autofocus: true, :placeholder => "please enter your email" %>
           <%= f.input :password, required: true, :placeholder => "please enter your password", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true%>

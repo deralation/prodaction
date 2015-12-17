@@ -31,7 +31,8 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="google-map-tab">
-                                    <div id="map-canvas" style="width:100%; height:500px;"></div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -78,8 +79,8 @@
                 </div>
                 <div class="gap"></div>
                 <div class="row">
-
                     <div class="col-md-6">
+                      <h2>Average Rating <%= @equipment.average_rating %></h2>
                         <h3>Description</h3>
 
                         <p><%= @equipment.description %></p>
@@ -90,6 +91,7 @@
                 <div class="row row-wrap">
                     <div class="col-md-8">
                         <ul class="booking-item-reviews list">
+<<<<<<< HEAD
 
 
                             <li>
@@ -131,46 +133,79 @@
                                     </div>
                                 </div>
                             </li>
+=======
+                          <% @reviews.order("id desc").each do |review| %>
+>>>>>>> 930efc6c6e5123f8e3b2b53f449f3e94fc5d6dfc
                             <li>
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="booking-item-review-person">
                                             <a class="booking-item-review-person-avatar round" href="#">
-                                                <img src="img/70x70.png" alt="Image Alternative text" title="Afro" />
+                                                <%= image_tag review.user.picture, class: "img-circle avatar-small avatar-review" %>
                                             </a>
-                                            <p class="booking-item-review-person-name"><a href="#">Ava McDonald</a>
+                                            <p class="booking-item-review-person-name"><a href="#"><%= review.user.first_name %></a>
                                             </p>
-                                            <p class="booking-item-review-person-loc">Palm Beach, FL</p><small><a href="#">21 Reviews</a></small>
+                                            <p class="booking-item-review-person-loc"><%= review.user.address %></p><small><a href="#"><%= pluralize review.user.reviews.count, 'Review' %> </a></small>
                                         </div>
                                     </div>
+<<<<<<< HEAD
 
+=======
+                                    <div class="col-md-10">
+                                        <div class="booking-item-review-content">
+
+                                            <hr>
+                                            <ul class="list-inline">
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                                <li><i class="fa fa-bolt"></i>
+                                                </li>
+                                            </ul>
+                                            <p><%= review.comment %>
+                                            </p>
+                                            <hr>
+
+
+                                        </div>
+                                    </div>
+>>>>>>> 930efc6c6e5123f8e3b2b53f449f3e94fc5d6dfc
                                 </div>
                             </li>
-                        </ul>
+                            <% end %>
+                          </ul>
                         <div class="row wrap">
 
 
                         </div>
                         <div class="gap gap-small"></div>
                         <div class="box bg-gray">
+                         <% if !@hasReview %>
                             <h3>Write a Review</h3>
-                            <form>
+                            <%= form_for([@equipment, @equipment.reviews.new]) do |f| %>
                                 <div class="row">
+                                  <%= f.hidden_field :user_id, value: current_user.id %>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label>Review Title</label>
-                                            <input class="form-control" type="text" />
+                                            <label>Review Rating</label>
+                                            <%= f.number_field :rate, class: 'form-control' %>
                                         </div>
                                         <div class="form-group">
                                             <label>Review Text</label>
-                                            <textarea class="form-control" rows="6"></textarea>
-                                        </div>
-                                    </div>
+                                            <%= f.text_area :comment, class: 'form-control', rows: 6 %>
 
+                                        <%= f.submit "Leave a Review", class: 'btn btn-primary' %>
+                                    </div>
                                 </div>
-                            </form>
-                            <input class="btn btn-primary" type="submit" value="Leave a Review " />
+                              <% end %>
+
                         </div>
+                        <% end %>
                     </div>
 
 
@@ -316,7 +351,30 @@
         </div>
 
 
+
     </div>
+
+
+    </div>
+
+</div>
+
+ <div id="map" style="width: 100%; height: 600px;"></div>
+  <% content_for(:after_js) do %>
+            <%= javascript_tag do %>
+              $(document).on('ready', function() {
+              console.log(<%= raw @markers.to_json %>);
+                handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function(){
+
+                  markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                });
+              })
+            <% end %>
+        <% end %>
+
 
 </div>
 
@@ -325,17 +383,15 @@
 
 
 <!-- Reviews -->
-
-<h3>Reviews <%= @equipment.average_rating %> (<%= @reviews.count %>)</h3>
-
-<div class="col-md-4">
-  <%= render 'reviews/form' if !@hasReview %>
-</div>
-
-<div class="col-md-4">
-  <%= render 'reviews/list' %>
-</div>
+<!--
 
 
+
+
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 930efc6c6e5123f8e3b2b53f449f3e94fc5d6dfc
 
 

@@ -9,6 +9,13 @@ class EquipmentsController < ApplicationController
       @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
         markers.lat equipments.latitude if equipments.latitude
         markers.lng equipments.longitude if equipments.longitude
+        markers.picture ({
+          :url => equipments.picture,
+          :width => "320",
+          :height => "320",
+          :scaledWidth => "120",
+          :scaledHeight => "120"
+          })
       end
       respond_to do |format|
         format.html
@@ -30,6 +37,13 @@ class EquipmentsController < ApplicationController
     @booked = Reservation.where("equipment_id = ? AND user_id = ?", @equipment_id, current_user.id).present? if current_user
     @reviews = @equipment.reviews
     @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+
+    @equipments = [@equipment]
+    @markers = Gmaps4rails.build_markers(@equipments) do |equipment, markers|
+        markers.lat equipment.latitude if equipment.latitude
+        markers.lng equipment.longitude if equipment.longitude
+      end
+
   end
 
 
