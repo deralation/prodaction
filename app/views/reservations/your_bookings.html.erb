@@ -1,28 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 text-center">
-     <h1>Your Bookings </h1>
-      <% @bookings.each do |book| %>
-      <ul>
-        <li>
-        <%= image_tag book.equipment.picture.url(:medium) %>
-        </li>
-        <li>
-        <%= book.equipment.name %>
-        </li>
-        <li>
-        <%= book.start_date %>
-        </li>
-        <li>
-        <%= book.end_date %>
-        </li>
-        <li>
-        <%= book.equipment.value %>
-        </li>
-      </ul>
-      <% end %>
-      </ul>
+    <div class="well">
+        <h1 class="text-center">Your Bookings</h1>
+
+          <% @bookings.each do |book| %>
+          <div class="list-group">
+            <div class="list-group-item">
+              <div class="media col-md-3">
+                <figure class="pull-left">
+                  <%= image_tag book.equipment.picture.url(:medium), class: "media-object img-rounded img-responsive"  %>
+                </figure>
+              </div>
+
+              <div class="col-md-6">
+                <h4 class="list-group-item-heading"> <%= book.equipment.name %> </h4>
+                  <p class="list-group-item-text"><%= book.equipment.description %></p>
+                  <p class="list-group-item-text glyphicon glyphicon-euro"><%= book.equipment.value %></p>
+                  <p class="list-group-item-text"><%= book.start_date %> <%= book.end_date %></p>
+              </div>
+              <div class="col-md-3 text-center media-object responsive">
+                <div>
+                  <%= link_to "Leave Review", equipment_path(book.equipment) %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
     </div>
   </div>
 </div>
-

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :equipments, controller: :user_equipments do
     end
   end
+
   resources :equipments
+
   resources :user_equipments
   resources :equipments, controller: :user_equipments do
   end
