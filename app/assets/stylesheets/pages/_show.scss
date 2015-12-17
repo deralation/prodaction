@@ -7,20 +7,42 @@
 
 }
 
-.price h4 {
-  margin-top: 30px;
-  float: right;
+.pricetag {
+  position: relative;
 }
 
+.price {
+  position: absolute;
+}
 
-.perday {
-  margin-top: 30px;
-  font-size: 4em;
-
+.day {
+  position: absolute;
 }
 
 .Profile #Meet a {
   border: 1.5px solid $blue;
   background-color: white;
   color: $blue;
+}
+
+.blackmagic-nearby {
+  width: 50px;
+}
+
+.row .profile {
+  padding-top: 20px;
+}
+
+.profile {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-text {
+
+  display: inline-block;
+}
+
+.profile-pic {
+  width: 100%;
 }

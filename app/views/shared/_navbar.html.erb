@@ -52,8 +52,8 @@
                 <!-- <li class="active"><a href="#">Home</a></li>
                 <li><a href="#contact">Contact</a></li> -->
                 <% if (user_signed_in?) %>
-                  <li><a href="#"> <span class="icon-message" style= "font-size: 1.5em"> </span>Message</a>   </li>
-                  <li><%= link_to "List A Gear", new_user_equipment_path(current_user) %></li>
+                  <li><a href="#"> <span class="icon-message" style= "font-size: 1em"> </span>Message</a></li>
+                  <li class = "add-gear"><%= link_to "List A Gear", new_user_equipment_path(current_user) %></li>
                 <% end %>
             </ul>
 
