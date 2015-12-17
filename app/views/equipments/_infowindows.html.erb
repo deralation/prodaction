@@ -1,0 +1,20 @@
+<div class="container">
+  <% @equipments.each do |f| %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.name %>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-xs-6 glyphicon glyphicon-euro">
+        <%= f.value %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= image_tag f.picture, size: "70x70" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
