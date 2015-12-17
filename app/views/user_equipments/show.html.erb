@@ -3,24 +3,22 @@
     <p class="text-center">Thanks for your listing</p>
   </div>
   <div class="row">
-    <% current_user.equipment.each do |e| %>
-    <% if e == current_user.equipment.last %>
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default coupon">
           <div class="panel-heading" id="head">
-              <%= e.name %>
+              <%= current_user.equipment.last.name %>
             </div>
               <div class="panel-body">
-                <%= image_tag e.picture.url(:medium), class: "coupon-img img-rounded" %>
+                <%= image_tag current_user.equipment.last.picture.url(:medium), class: "coupon-img img-rounded" %>
               <div class="col-md-9">
                 <ul class="disclosure">
-                  <p><%= e.description %></p>
+                  <p><%= current_user.equipment.last.description %></p>
                 </ul>
               </div>
               <div class="col-md-3">
                 <div class="offer">
                   <span class="glyphicon glyphicon-euro"><sup></sup></span>
-                  <span class="number"><%= e.value %></span>
+                  <span class="number"><%= current_user.equipment.last.value %></span>
                 </div>
               </div>
               </div>
@@ -39,8 +37,6 @@
           <div class="exp"></div>
         </div>
       </div>
-      <% end %>
-      <% end %>
     </div>
   </div>
 </div>

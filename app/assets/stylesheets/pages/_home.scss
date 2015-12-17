@@ -13,8 +13,7 @@
 }
 
 
-
-#equipment_name {
+#search_box {
   color: black;
 }
 
@@ -28,4 +27,20 @@
 
 .panel-footer {
   text-align: center;
+}
+
+.discovery-card-1 {
+  background-image: image-url('pro_1.jpg');
+}
+
+.discovery-card-2 {
+  background-image: image-url('pro_2.jpg');
+}
+
+.discovery-card-3 {
+  background-image: image-url('pro_3.jpg');
+}
+
+.avatar-review {
+  max-width: 30px;
 }
