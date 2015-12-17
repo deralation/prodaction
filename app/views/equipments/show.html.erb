@@ -79,8 +79,8 @@
                 </div>
                 <div class="gap"></div>
                 <div class="row">
-
                     <div class="col-md-6">
+                      <h2>Average Rating <%= @equipment.average_rating %></h2>
                         <h3>Description</h3>
 
                         <p><%= @equipment.description %></p>
@@ -307,20 +307,20 @@
 </div>
 
  <div id="map" style="width: 100%; height: 600px;"></div>
-<% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-            $(document).on('ready', function() {
-            console.log(<%= raw @markers.to_json %>);
-              handler = Gmaps.build('Google');
-              handler.buildMap({ internal: { id: 'map' } }, function(){
+  <% content_for(:after_js) do %>
+            <%= javascript_tag do %>
+              $(document).on('ready', function() {
+              console.log(<%= raw @markers.to_json %>);
+                handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function(){
 
-                markers = handler.addMarkers(<%= raw @markers.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
-              });
-            })
-          <% end %>
-      <% end %>
+                  markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                });
+              })
+            <% end %>
+        <% end %>
 
 
 
@@ -329,7 +329,7 @@
 
 <!-- Reviews -->
 <!--
-<h3>Reviews <%= @equipment.average_rating %> (<%= @reviews.count %>)</h3> -->
+
 
 
 
