@@ -251,7 +251,7 @@
                    <% content_for(:after_js) do %>
                      <%= javascript_tag do %>
                        $(document).on('ready', function() {
-
+                          console.log(<%= raw @markers.to_json %>);
 
                          $("#btn-map").on("click", function(){
 
