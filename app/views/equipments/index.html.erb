@@ -31,16 +31,14 @@
                 <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Very Good
                 </div>
 
-              <div class= "col-sm-12">
+                <div class= "col-sm-12">
                 <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Good
                 </div>
 
                 <div class= "col-sm-12">
                 <%= check_box_tag "q[equip_type_eq_any][]", "Audio" %> Acceptable
                 </div>
-
             </div>
-
             <hr>
         </div>
         <% end %>
@@ -230,30 +228,32 @@
                   </div>
               </div>
           </div>
-
       </div>
-
-
     </div>
-
-
 
     <div class="col-md-9">
 
       <div class="btn-group">
-        <a href="#" id="list" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-th-list"></span>
-          List
-        </a>
         <a href="#" id="grid" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-th"></span>
           Grid
+        </a>
+        <a href="#" id="list" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-th-list"></span>
+          List
         </a>
         <a href="#map" id="btn-map" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-map-marker"></span>
           Map
         </a>
       </div>
+      <!-- /.container -->
+
+      <div class="row">
+         <div class="col-sm-12">
+            <div id="map" class="hidden"></div>
+         </div> <!-- /.map -->
+       </div> <!-- /.row -->
 
 
       <div id="content-wrapper">
@@ -329,75 +329,49 @@
                             <i class="fa fa-bolt"></i>
                         </div>
                         </div>
-
                     </div>
                  </div>
-
-                 <h4>
-
-
-
-
-            </div>
+              </div>
             <% end %>
 
         </div>
       </div>
-
     </div>
-
-        </div>
-
-
-    <!-- /.container -->
-
-    <div class="row">
-       <div class="col-sm-12">
-
-              <div id="map" class="hidden"></div>
-
-               <script>
-                   <% content_for(:after_js) do %>
-                     <%= javascript_tag do %>
-                       $(document).on('ready', function() {
-                          console.log(<%= raw @markers.to_json %>);
-
-
-                         $("#btn-map").on("click", function(){
-
-                          $("#map").toggleClass("hidden");
-                          $("#content-wrapper").toggleClass("hidden");
-
-
-                            handler = Gmaps.build('Google');
-                            handler.buildMap({ internal: { id: 'map' } }, function(){
-
-                             markers = handler.addMarkers(<%= raw @markers.to_json %>);
-                             handler.bounds.extendWith(markers);
-                             handler.fitMapToBounds();
-                           });
-
-                         })
-
-
-                       })
-                     <% end %>
-                   <% end %>
-                 </script>
-
-       </div> <!-- /.map -->
-     </div> <!-- /.row -->
-
-
-
-
+  </div>
 
 </div>
 
+<script>
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).on('ready', function() {
+         console.log(<%= raw @markers.to_json %>);
 
 
+        $("#btn-map").on("click", function(){
+
+         $("#map").removeClass("hidden");
+         $("#content-wrapper").addClass("hidden");
 
 
+           handler = Gmaps.build('Google');
+           handler.buildMap({ internal: { id: 'map' } }, function(){
+
+            markers = handler.addMarkers(<%= raw @markers.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+          });
+
+        })
+
+        $("#grid").on("click", function(){
+
+         $("#map").addClass("hidden");
+         $("#content-wrapper").removeClass("hidden");
+        })
 
 
-
+      })
+    <% end %>
+  <% end %>
+</script>
