@@ -9,7 +9,7 @@ class EquipmentsController < ApplicationController
       @markers = Gmaps4rails.build_markers(@equipments) do |equipments, markers|
         markers.lat equipments.latitude if equipments.latitude
         markers.lng equipments.longitude if equipments.longitude
-        markers.infowindow render_to_string(partial: "/equipments/infowindows", locals: { object: equipment})
+        markers.infowindow render_to_string(partial: "/equipments/infowindows", locals: { object: equipments})
       end
       respond_to do |format|
         format.html
