@@ -59,7 +59,7 @@
                       <!-- BEGIN REVIEW -->
                       <div class="Reviews">
                         <h3>Reviews</h3>
-                        <p>Average Rating <%= @equipment.average_rating %></p>
+                        <p>Average rating: <%= @equipment.average_rating %></p>
                         <div class="row">
                             <div class="col-md-8">
                               <ul class="booking-item-reviews list">
@@ -84,16 +84,10 @@
 
                                                   <hr>
                                                   <ul class="list-inline">
+                                                    <% review.rate.to_i.times do |bolt| %>
                                                       <li><i class="fa fa-bolt"></i>
                                                       </li>
-                                                      <li><i class="fa fa-bolt"></i>
-                                                      </li>
-                                                      <li><i class="fa fa-bolt"></i>
-                                                      </li>
-                                                      <li><i class="fa fa-bolt"></i>
-                                                      </li>
-                                                      <li><i class="fa fa-bolt"></i>
-                                                      </li>
+                                                    <% end %>
                                                   </ul>
                                                   <p><%= review.comment %>
                                                   </p>
