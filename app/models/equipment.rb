@@ -18,7 +18,7 @@ class Equipment < ActiveRecord::Base
   after_validation :geocode, if: :address_changed?
 
   def self.search(search)
-    where('"equipment"."name" LIKE ?', search)
+    where('"equipment"."name" ILIKE ?', "%#{search}%")
   end
 
   def average_rating

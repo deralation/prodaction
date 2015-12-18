@@ -63,3 +63,16 @@ color:gray;
 .navbar-inverse .navbar-nav > li > a:hover {
     color: $blue;
 }
+
+#add-gear a{
+  border: 1px solid white;
+  padding-top: 14px;
+  padding-botoom: 14px;
+}
+
+#add-gear a:hover{
+    border: 1px solid $blue;
+  }
+
+
+
