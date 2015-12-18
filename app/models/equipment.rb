@@ -23,7 +23,7 @@ class Equipment < ActiveRecord::Base
 
   def average_rating
     if reviews.count > 1
-      reviews.average(:rate).round(2)
+      reviews.average(:rate).round(1)
     elsif reviews.count == 1
       reviews.first.rate
     else

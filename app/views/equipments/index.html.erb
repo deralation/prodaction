@@ -320,14 +320,15 @@
 
 
                         <div class="ratings">
-                        <% if !equip.user.reviews.where(equipment_id: equip.id).empty? %>
-                        <div class="pull-right"><%= equip.user.reviews.where(equipment_id: equip.id).first.rate %> Volts</div>
+                        <% if !equip.reviews.empty? %>
+                        <div class="pull-right"><%= equip.reviews.average(:rate).round(1)%> Volts</div>
                         <div>
-                            <% equip.user.reviews.where(equipment_id: equip.id).first.rate.to_i.times do |bolt| %>
+                            <% equip.reviews.average(:rate).round(1).to_i.times do |bolt| %>
                               <i class="fa fa-bolt"></i>
                             <% end %>
                         </div>
                          <% else %>
+
                          <div class="pull-right">0 Volts</div>
                         <% end %>
                         </div>
