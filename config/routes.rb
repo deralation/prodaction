@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   resources :equipments, controller: :user_equipments do
   end
 
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
+
+
   get "/your_bookings", to: "reservations#your_bookings"
   get "/your_reservations", to: "reservations#your_reservations"
 
