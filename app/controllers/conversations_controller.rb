@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  before_actions :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @user = User.all

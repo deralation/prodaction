@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   def index
     if current_user == @conversation.sender || current_user == @conversation.recipient
-      @other = current_user == @conversation.sender ? conversation.recipient : @conversation.sender
+      @other = current_user == @conversation.sender ? @conversation.recipient : @conversation.sender
       @messages = @conversation.messages.order("created_at DESC")
     else
       redirect_to conversation_path, alert: "You don't have permission to view this."
@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-    @messages = @conversation.messages.other("created_at DESC")
+    @messages = @conversation.messages.order("created_at DESC")
 
     if @message.save
       redirect_to conversation_messages_path(@conversation)
@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
 
 
   def message_params
-    params.require(:user).permit(:content, :user_id)
+    params.require(:message).permit(:content, :user_id)
   end
 
 

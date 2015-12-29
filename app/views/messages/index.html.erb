@@ -1,4 +1,32 @@
 <div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-9"></div>
+  <div class="col-md-3 text-center">
+    <strong><%= @other.first_name %></strong>
+    <%= link_to "View Profile", @other %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Conversation with <%= @other.first_name %>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for [@conversation, @conversation.messages.new] do |f|%>
+            <div class="form-group">
+              <%= f.text_area :content, id: "new message", placeholder: "Add a personal message", class:"form-control" %>
+            </div>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+
+            <div class="actions">
+              <%= f.submit "send message", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div id="chat">
+      <%= render 'messages' %>
+    </div>
+
+  </div>
 </div>
