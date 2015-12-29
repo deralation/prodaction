@@ -6,7 +6,7 @@
       <div class=" panel-body">
         <div class="container">
           <% @conversations.each do |conversation| %>
-            <% other = conversation.sender == current_user ? coversation.recipient : conversation.sender %>
+            <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
             <% link_to conversation_messages_path(conversation) do %>
               <div class="row conversation">
                 <div class="col-md-2">
