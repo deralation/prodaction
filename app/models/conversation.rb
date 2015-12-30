@@ -6,6 +6,8 @@ class Conversation < ActiveRecord::Base
 
   validates_uniqueness_of :sender_id, scope: :recipient_id
 
+  # previous query for sender and receiver id
+
   # scope :involving, -> (user) do
   #   where("conversations.sender_id = ? OR conversations.recipient_id = ?", user.id, user.id)
   # end
@@ -13,6 +15,8 @@ class Conversation < ActiveRecord::Base
   # scope :between, -> (sender_id, recipient_id) do
   #   where("conversations.recipient_id = ? AND conversations.recipient_id = ?) OR (conversations.sender_id = ? conversations.recipient_id = ?)",sender_id, recipient_id, recipient_id, sender_id)
   # end
+
+  # new query for sender and receiver id
 
   scope :involving, -> (user) do
     where("conversations.sender_id = ? OR conversations.recipient_id = ?", user.id, user.id)
