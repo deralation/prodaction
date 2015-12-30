@@ -27,18 +27,14 @@
     </div>
 
     <h3>All Users</h3>
-    <div class="caption">
-      <div id = "list-info">
         <% @user.each do |user| %>
           <% if user != current_user %>
-          <%= image_tag user.picture, class: "image-circle avatar-list" %>
           <%= user.first_name %>
           <%= link_to "send message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
           <%end%>
           <br>
         <% end %>
-      </div>
-    </div>
+
 
   </div>
 
