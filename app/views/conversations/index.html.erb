@@ -5,13 +5,21 @@
       <div class="panel-heading">Your Conversations</div>
       <div class=" panel-body">
         <div class="container">
+          <div class="col-md-2">
+            <h3>All Users</h3>
+            <% @user.each do |user| %>
+              <% if user != current_user %>
+              <%= user.first_name %>
+              <%= link_to "send message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+              <%end%>
+              <br>
+            <% end %>
+          </div>
           <% @conversations.each do |conversation| %>
             <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
             <% link_to conversation_messages_path(conversation) do %>
               <div class="row conversation">
-                <div class="col-md-2">
 
-                </div>
                 <div class="col-md-2">
                   <%= other.first_name %>
                   <%= conversation.messages.last %>
@@ -26,14 +34,7 @@
       </div>
     </div>
 
-    <h3>All Users</h3>
-        <% @user.each do |user| %>
-          <% if user != current_user %>
-          <%= user.first_name %>
-          <%= link_to "send message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
-          <%end%>
-          <br>
-        <% end %>
+
 
 
   </div>
