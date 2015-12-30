@@ -13,6 +13,7 @@ class Conversation < ActiveRecord::Base
   # scope :between, -> (sender_id, recipient_id) do
   #   where("conversations.recipient_id = ? AND conversations.recipient_id = ?) OR (conversations.sender_id = ? conversations.recipient_id = ?)",sender_id, recipient_id, recipient_id, sender_id)
   # end
+
   scope :involving, -> (user) do
     where("conversations.sender_id = ? OR conversations.recipient_id = ?", user.id, user.id)
   end
